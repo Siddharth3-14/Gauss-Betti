@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>topologicalFunc &mdash; GaussBetti 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Utilities" href="utilities.html" />
+    <link rel="prev" title="Welcome to GaussBetti’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GaussBetti
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">topologicalFunc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gaussClass.html">gaussClass</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GaussBetti</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>topologicalFunc</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/topologicalFunc.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="topologicalfunc">
+<span id="id1"></span><h1>topologicalFunc<a class="headerlink" href="#topologicalfunc" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-topologicalFunc"></span><dl class="py function">
+<dt class="sig sig-object py" id="topologicalFunc.GaussianFiltration">
+<span class="sig-prename descclassname"><span class="pre">topologicalFunc.</span></span><span class="sig-name descname"><span class="pre">GaussianFiltration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">GaussianRandomField</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lower'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#topologicalFunc.GaussianFiltration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates Filtration for the Gaussian Random Field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GaussianRandomField</strong> (<em>array</em>) – numpy 2-D array. The Gaussian Random Field generated from the class using Gen_GRF method.</p></li>
+<li><p><strong>type</strong> (<em>string</em>) – Takes ipnut either ‘lower’ or ‘upper’ for lower or upper filtration.</p></li>
+<li><p><strong>nsize</strong> (<em>integer</em>) – Size of the Gaussian Random Fields grid.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Filtration Diagram</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dionysus object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="topologicalFunc.GenerateBettiP">
+<span class="sig-prename descclassname"><span class="pre">topologicalFunc.</span></span><span class="sig-name descname"><span class="pre">GenerateBettiP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Filtraion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresholds_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresholds_stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lower'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#topologicalFunc.GenerateBettiP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates the Betti numbers from the Filtration diagram.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Filtration</strong> (<em>Dionysus object</em>) – Output of GaussianFiltration.</p></li>
+<li><p><strong>thresholds_start</strong> (<em>float</em>) – start value for generating superlevels of the Gaussian Random field .</p></li>
+<li><p><strong>thresholds_stop</strong> (<em>float</em>) – stop value for generating superlevels of the Gaussian Random field.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Multidimensaion array contaiing Betti numbers for different dimensions</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="topologicalFunc.GenerateGenus">
+<span class="sig-prename descclassname"><span class="pre">topologicalFunc.</span></span><span class="sig-name descname"><span class="pre">GenerateGenus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Betti_array</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#topologicalFunc.GenerateGenus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates the Genus curve for gaussian random field using Betti arrays.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>array</strong> (<em>Betti</em>) – Betti array from GenerateBettiP.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>1-D array contaiing Genus curve for the Gaussian random field.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="utilities.html" class="btn btn-neutral float-right" title="Utilities" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to GaussBetti’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Siddharth.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

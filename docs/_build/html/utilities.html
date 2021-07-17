@@ -1,0 +1,278 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Utilities &mdash; GaussBetti 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GaussBetti
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Utilities</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GaussBetti</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Utilities</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/utilities.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="utilities">
+<span id="id1"></span><h1>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-utilities"></span><dl class="py function">
+<dt class="sig sig-object py" id="utilities.SaveROC">
+<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">SaveROC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">PFA</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PD</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_iter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Betti</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.SaveROC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the PFA and PD array with the labels provided through parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>PFA</strong> (<em>array</em>) – numpy vector. The PFA array generated during ROC gen.</p></li>
+<li><p><strong>PD</strong> (<em>array</em>) – numpy vector. THe PD array generated during ROC gen.</p></li>
+<li><p><strong>nsize</strong> (<em>integer</em>) – Size of the Gaussian Random Fields grid.</p></li>
+<li><p><strong>num_iter</strong> (<em>integer</em>) – Number of iteration for which ROC gen is run.</p></li>
+<li><p><strong>H0</strong> (<em>integer</em>) – Power spectral index of Null Hypothesis.</p></li>
+<li><p><strong>H1</strong> (<em>integer</em>) – Power spectral index of Test Hypothesis.</p></li>
+<li><p><strong>type</strong> (<em>string</em>) – type of the ROC curve generated</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.likelihoodratio">
+<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">likelihoodratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">correlation0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlation1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.likelihoodratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the likelihood ratio for the False alarm and detection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>correlation0</strong> (<em>array</em>) – Correlation matrix for the Gaussian Random Field for null hypothesis.</p></li>
+<li><p><strong>correlation1</strong> (<em>array</em>) – Correlation matrix for the Gaussian Random Field for test hypothesis.</p></li>
+<li><p><strong>X0</strong> (<em>array</em>) – Gausian Random Field of null hypothesis as a 1-D array</p></li>
+<li><p><strong>X1</strong> (<em>array</em>) – Gaussian Random Field of test hypothesis as a 1-D array</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>likelihood ratio</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.plotROC">
+<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">plotROC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">PFA</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PD</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_iter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Betti</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.plotROC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the PFA and PD ROC graph with the labels provided through parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>PFA</strong> (<em>array</em>) – numpy vector. The PFA array generated during ROC gen.</p></li>
+<li><p><strong>PD</strong> (<em>array</em>) – numpy vector. THe PD array generated during ROC gen.</p></li>
+<li><p><strong>nsize</strong> (<em>integer</em>) – Size of the Gaussian Random Fields grid.</p></li>
+<li><p><strong>num_iter</strong> (<em>integer</em>) – Number of iteration for which ROC gen is run.</p></li>
+<li><p><strong>H0</strong> (<em>integer</em>) – Power spectral index of Null Hypothesis.</p></li>
+<li><p><strong>H1</strong> (<em>integer</em>) – Power spectral index of Test Hypothesis.</p></li>
+<li><p><strong>type</strong> (<em>string</em>) – type of the ROC curve generated</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Siddharth.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
