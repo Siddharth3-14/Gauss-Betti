@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import dionysus as dio
-from gaussClass import GaussianRandomField
 
 
 def GaussianFiltration(GaussianRandomField, type='lower'):
@@ -87,3 +86,5 @@ def GenerateGenus(Betti_array):
     for i in dimmensions:
         genus += ((-1)**i)*Betti_array[i]
     return genus
+
+

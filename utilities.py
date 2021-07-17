@@ -27,9 +27,7 @@ def plotROC(PFA,PD,nsize,num_iter,H0,H1,Betti,type):
     plt.title(title)
     plt.savefig('Figures/{type}B{Betti}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.png'.format(type=type,Betti=str(Betti),nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1)))
 
-# x = [.1,.2,.3,.4,.5,.6]
-# y = [.5,.5,.5,.5,.5,.5]
-# plotROC(x,y,12,13,1,2,2,'Genus')
+
 
 def SaveROC(PFA,PD,nsize,num_iter,H0,H1,Betti,type):
     """SaveROC
