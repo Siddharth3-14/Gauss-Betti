@@ -71,3 +71,19 @@ def GenerateBettiP(Filtraion,thresholds_start,thresholds_stop,type='lower'):
             Betti_p.append(Betti_temp)
         return np.array(Betti_p)
 
+def GenerateGenus(Betti_array):
+    """GenerateGenus
+
+    Generates the Genus curve for gaussian random field using Betti arrays.
+    
+    Args:
+        Betti array (numpy array): Betti array from GenerateBettiP.
+
+    Returns:
+       Numpy array: 1-D array contaiing Genus curve for the Gaussian random field.
+    """
+    dimmensions = Betti_array.shape[0]
+    genus = Betti_array.shape[1]
+    for i in dimmensions:
+        genus += ((-1)**i)*Betti_array[i]
+    return genus
