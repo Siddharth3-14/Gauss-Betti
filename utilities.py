@@ -1,6 +1,44 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+#TODO: solve the infinity problem
+#TODO: complete the likelihood ratio function
+
+
+
+def likelihoodratio(correlation0,correlation1,X0,X1):
+    """likelihoodratio
+
+    Calculates the likelihood ratio for the False alarm and detection.
+    
+    Args:
+        correlation0 (array): Correlation matrix for the Gaussian Random Field for null hypothesis.
+        correlation1 (array): Correlation matrix for the Gaussian Random Field for test hypothesis.
+        X0 (array): Gausian Random Field of null hypothesis as a 1-D array
+        X1 (array): Gaussian Random Field of test hypothesis as a 1-D array 
+       
+        
+    Returns:
+       float: likelihood ratio
+    """
+
+
+    X0 = X0 - np.mean(X0)
+    det_corr0 = np.sqrt(abs(np.linalg.det(correlation0)))
+    inv_corr0 = np.linalg.inv(correlation0)
+    Trans_X0 = np.transpose(X0)
+    
+
+
+
+    X1 = X1 - np.mean(X1)
+    det_corr1 = np.sqrt(abs(np.linalg.det(correlation1)))
+    inv_corr1 = np.linalg.inv(correlation1)
+    Trans_X1 = np.transpose(X1)
+
+
+    return None
+
 def plotROC(PFA,PD,nsize,num_iter,H0,H1,Betti,type):
     """plotROC
 
@@ -16,7 +54,7 @@ def plotROC(PFA,PD,nsize,num_iter,H0,H1,Betti,type):
         type (string): type of the ROC curve generated
         
     Returns:
-       None: None
+        None: None
     """
     plt.plot(PFA,PD)
     plt.xlim(0,1)

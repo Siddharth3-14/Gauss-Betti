@@ -87,4 +87,12 @@ def GenerateGenus(Betti_array):
         genus += ((-1)**i)*Betti_array[i]
     return genus
 
+def GenerateBettiAVG():
 
+
+    return None
+
+def GenerateGenusAVG():
+
+    
+    return None
