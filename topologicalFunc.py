@@ -47,7 +47,7 @@ def GenerateBettiP(Filtraion,thresholds_start,thresholds_stop,type='lower'):
     thresholds = np.arange(thresholds_start,thresholds_stop,0.01)
     Betti_p = []
     if type == 'lower':
-        for i, dgm in enumerate(Filtraion):
+        for _, dgm in enumerate(Filtraion):
             Betti_temp = []
             for nu in thresholds:
                 Betti_num = 0

@@ -3,8 +3,34 @@ import matplotlib.pyplot as plt
 
 #TODO: solve the infinity problem
 #TODO: complete the likelihood ratio function
+#TODO: finish documentation for the KLdivergence
 
+def KLdivergence(x,y1,y2):
+    """KLdivergence
 
+    Calculates the KL divergence for 2 different Gaussian Random Field.
+    
+    Args:
+        x (array): 
+        y1 (array): Gausian Random Field of null hypothesis as a 1-D array
+        y2 (array): Gaussian Random Field of test hypothesis as a 1-D array 
+ 
+               
+    Returns:
+       float: KL divergence
+    """
+
+    f1, edges = np.histogram(y1, density=True, bins=x)
+    binWidth1 = edges[1] - edges[0]
+    f2, edges = np.histogram(y2, density=True, bins=x)
+    binWidth2 = edges[1] - edges[0]
+    sumkl = 0
+    for i in range(0, len(f1)):
+        if (f1[i] != 0 and f2[i] != 0):
+            sumkl = sumkl+((f1*binWidth1)
+                        [i]*np.log((f1*binWidth1)[i]/(f2*binWidth2)[i]))
+    print("KL_fixed = ", sumkl)
+    return sumkl
 
 def likelihoodratio(correlation0,correlation1,X0,X1):
     """likelihoodratio
