@@ -36,7 +36,7 @@ def KLdivergence(x,y1,y2):
     return sumkl
 
 
-def Generate_Likelihhood_Array(Nsize,n0,n1,iteration):
+def Generate_Likelihood_Array(Nsize,n0,n1,iteration):
     Gaussian0 = GaussianRandomField(Nsize,n0)
     Gaussian1 = GaussianRandomField(Nsize,n1)
     corr0 = Gaussian0.corr_s
@@ -77,10 +77,10 @@ def Generate_Likelihhood_Array(Nsize,n0,n1,iteration):
         tempType0,tempType1 = likelihoodratio(tempGaussian0,tempGaussian1)
         likelihoodratio0.append(tempType0)
         likelihoodratio1.append(tempType1)
-           
+
     return likelihoodratio0,likelihoodratio1
 
-def Generate_BettiGeus_array(Nsize,n0,n1,average,iteration,thresholds_start,thresholds_stop,type='lower'):
+def Generate_BettiGenus_array(Nsize,n0,n1,average,iteration,thresholds_start,thresholds_stop,type='lower'):
     Gaussian0 = GaussianRandomField(Nsize,n0)
     Gaussian1 = GaussianRandomField(Nsize,n1)
     size = int((thresholds_stop-thresholds_start)/0.01)
