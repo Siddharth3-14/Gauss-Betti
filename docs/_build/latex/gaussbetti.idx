@@ -5,9 +5,10 @@
 \indexentry{GenerateGenus() (in module topologicalFunc)@\spxentry{GenerateGenus()}\spxextra{in module topologicalFunc}|hyperpage}{1}
 \indexentry{module@\spxentry{module}!utilities@\spxentry{utilities}|hyperpage}{3}
 \indexentry{utilities@\spxentry{utilities}!module@\spxentry{module}|hyperpage}{3}
+\indexentry{KLdivergence() (in module utilities)@\spxentry{KLdivergence()}\spxextra{in module utilities}|hyperpage}{3}
 \indexentry{SaveROC() (in module utilities)@\spxentry{SaveROC()}\spxextra{in module utilities}|hyperpage}{3}
 \indexentry{likelihoodratio() (in module utilities)@\spxentry{likelihoodratio()}\spxextra{in module utilities}|hyperpage}{3}
-\indexentry{plotROC() (in module utilities)@\spxentry{plotROC()}\spxextra{in module utilities}|hyperpage}{3}
+\indexentry{plotROC() (in module utilities)@\spxentry{plotROC()}\spxextra{in module utilities}|hyperpage}{4}
 \indexentry{module@\spxentry{module}!gaussClass@\spxentry{gaussClass}|hyperpage}{5}
 \indexentry{gaussClass@\spxentry{gaussClass}!module@\spxentry{module}|hyperpage}{5}
 \indexentry{GaussianRandomField (class in gaussClass)@\spxentry{GaussianRandomField}\spxextra{class in gaussClass}|hyperpage}{5}

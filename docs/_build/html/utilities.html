@@ -40,7 +40,9 @@
 
     
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gaussClass" href="gaussClass.html" />
+    <link rel="prev" title="topologicalFunc" href="topologicalFunc.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,11 +87,12 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Utilities</a></li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="topologicalFunc.html">topologicalFunc</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gaussClass.html">gaussClass</a></li>
 </ul>
-</div>
+
             
           
         </div>
@@ -158,6 +161,27 @@
   <div class="section" id="utilities">
 <span id="id1"></span><h1>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h1>
 <span class="target" id="module-utilities"></span><dl class="py function">
+<dt class="sig sig-object py" id="utilities.KLdivergence">
+<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">KLdivergence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.KLdivergence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the KL divergence for 2 different Gaussian Random Field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array</em>) – </p></li>
+<li><p><strong>y1</strong> (<em>array</em>) – Gausian Random Field of null hypothesis as a 1-D array</p></li>
+<li><p><strong>y2</strong> (<em>array</em>) – Gaussian Random Field of test hypothesis as a 1-D array</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>KL divergence</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="utilities.SaveROC">
 <span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">SaveROC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">PFA</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PD</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_iter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Betti</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.SaveROC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Saves the PFA and PD array with the labels provided through parameters.</p>
@@ -236,6 +260,10 @@
            
           </div>
           <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="gaussClass.html" class="btn btn-neutral float-right" title="gaussClass" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="topologicalFunc.html" class="btn btn-neutral float-left" title="topologicalFunc" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 

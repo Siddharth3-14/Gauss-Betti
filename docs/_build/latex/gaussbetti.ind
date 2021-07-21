@@ -28,6 +28,7 @@
   \indexspace
   \bigletter K
   \item \spxentry{k\_ind}\spxextra{gaussClass.GaussianRandomField attribute}, \hyperpage{5}
+  \item \spxentry{KLdivergence()}\spxextra{in module utilities}, \hyperpage{3}
 
   \indexspace
   \bigletter L
@@ -47,7 +48,7 @@
 
   \indexspace
   \bigletter P
-  \item \spxentry{plotROC()}\spxextra{in module utilities}, \hyperpage{3}
+  \item \spxentry{plotROC()}\spxextra{in module utilities}, \hyperpage{4}
   \item \spxentry{PowerSpectrum}\spxextra{gaussClass.GaussianRandomField attribute}, \hyperpage{5}
   \item \spxentry{PowerSpectrum\_grid\_generator()}\spxextra{gaussClass.GaussianRandomField method}, 
 		\hyperpage{5}

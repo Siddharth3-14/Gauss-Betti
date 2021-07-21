@@ -60,7 +60,7 @@
 
 
 \title{GaussBetti}
-\date{Jul 17, 2021}
+\date{Jul 19, 2021}
 \release{1.0.0}
 \author{Siddharth}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -172,7 +172,41 @@ Numpy array
 
 
 \chapter{Utilities}
-\label{\detokenize{utilities:utilities}}\label{\detokenize{utilities:id1}}\label{\detokenize{utilities::doc}}\phantomsection\label{\detokenize{utilities:module-utilities}}\index{module@\spxentry{module}!utilities@\spxentry{utilities}}\index{utilities@\spxentry{utilities}!module@\spxentry{module}}\index{SaveROC() (in module utilities)@\spxentry{SaveROC()}\spxextra{in module utilities}}
+\label{\detokenize{utilities:utilities}}\label{\detokenize{utilities:id1}}\label{\detokenize{utilities::doc}}\phantomsection\label{\detokenize{utilities:module-utilities}}\index{module@\spxentry{module}!utilities@\spxentry{utilities}}\index{utilities@\spxentry{utilities}!module@\spxentry{module}}\index{KLdivergence() (in module utilities)@\spxentry{KLdivergence()}\spxextra{in module utilities}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{utilities:utilities.KLdivergence}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{utilities.}}\sphinxbfcode{\sphinxupquote{KLdivergence}}}{\emph{\DUrole{n}{x}}, \emph{\DUrole{n}{y1}}, \emph{\DUrole{n}{y2}}}{}
+\sphinxAtStartPar
+Calculates the KL divergence for 2 different Gaussian Random Field.
+\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{x}} (\sphinxstyleliteralemphasis{\sphinxupquote{array}}) \textendash{} 
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{y1}} (\sphinxstyleliteralemphasis{\sphinxupquote{array}}) \textendash{} Gausian Random Field of null hypothesis as a 1\sphinxhyphen{}D array
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{y2}} (\sphinxstyleliteralemphasis{\sphinxupquote{array}}) \textendash{} Gaussian Random Field of test hypothesis as a 1\sphinxhyphen{}D array
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+\sphinxAtStartPar
+KL divergence
+
+\item[{Return type}] \leavevmode
+\sphinxAtStartPar
+float
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{SaveROC() (in module utilities)@\spxentry{SaveROC()}\spxextra{in module utilities}}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{utilities:utilities.SaveROC}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{utilities.}}\sphinxbfcode{\sphinxupquote{SaveROC}}}{\emph{\DUrole{n}{PFA}}, \emph{\DUrole{n}{PD}}, \emph{\DUrole{n}{nsize}}, \emph{\DUrole{n}{num\_iter}}, \emph{\DUrole{n}{H0}}, \emph{\DUrole{n}{H1}}, \emph{\DUrole{n}{Betti}}, \emph{\DUrole{n}{type}}}{}

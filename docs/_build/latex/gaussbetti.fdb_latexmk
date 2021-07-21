@@ -1,10 +1,10 @@
 # Fdb version 3
-["makeindex gaussbetti.idx"] 1626522991 "gaussbetti.idx" "gaussbetti.ind" "gaussbetti" 1626522994
-  "gaussbetti.idx" 1626522994 2949 738599c5c45b936cc69241ad22ffa5a4 "pdflatex"
+["makeindex gaussbetti.idx"] 1626711843 "gaussbetti.idx" "gaussbetti.ind" "gaussbetti" 1626711844
+  "gaussbetti.idx" 1626711844 3068 349a2c5fa2e5e1d2532b736e94684da5 "pdflatex"
   (generated)
   "gaussbetti.ilg"
   "gaussbetti.ind"
-["pdflatex"] 1626522993 "gaussbetti.tex" "gaussbetti.pdf" "gaussbetti" 1626522994
+["pdflatex"] 1626711843 "gaussbetti.tex" "gaussbetti.pdf" "gaussbetti" 1626711844
   "/usr/share/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc" 1617738065 2457 aaabbccba4df2a7f7371410ee4e075a3 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc" 1617738065 3124 3813fd4c981d99822890a2861b0d274c ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1617738065 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -133,13 +133,13 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1617738065 39911 2da6c67557ec033436fe5418a70a8a61 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1625847302 334353 c825108cbc13fa4a18a274c473196142 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1625847299 2812677 2bea84a1eeae7e4f82374bc5c05bf929 ""
-  "gaussbetti.aux" 1626522994 4244 1334f3e8363bf68518ecee5382c7a42a "pdflatex"
-  "gaussbetti.ind" 1626522992 2485 8209ef373244d937562be3bfc0c41173 "makeindex gaussbetti.idx"
-  "gaussbetti.out" 1626522994 654 ba7d6e2635a48928e77309b89c1d3c78 "pdflatex"
-  "gaussbetti.tex" 1626522981 19480 8ab13c0629489aee55988738984e282f ""
-  "gaussbetti.toc" 1626522994 410 a118a9c6979863aebe99bff489db44a4 "pdflatex"
+  "gaussbetti.aux" 1626711844 4322 1eb26dca6bac34950f85bb280ed0dc3f "pdflatex"
+  "gaussbetti.ind" 1626711843 2564 74c47d6236e792fa34fef233e90177ac "makeindex gaussbetti.idx"
+  "gaussbetti.out" 1626711844 654 5a8c1c384e706d7661b2d74655483414 "pdflatex"
+  "gaussbetti.tex" 1626711827 20765 e5cef115bbb7af55a4dd0d99402dec6b ""
+  "gaussbetti.toc" 1626711844 410 8941d666dafd1bf4de675f5fddf8a6c0 "pdflatex"
   "sphinx.sty" 1623884593 13210 1fc7fddaf4a9dba457504448864afe1f ""
-  "sphinxhighlight.sty" 1626522980 6679 76d10c62e0f0661410b46f5db6118e26 ""
+  "sphinxhighlight.sty" 1626711827 6679 76d10c62e0f0661410b46f5db6118e26 ""
   "sphinxlatexadmonitions.sty" 1623884593 6238 2d867d769abf3f72abc17ef52adff78b ""
   "sphinxlatexgraphics.sty" 1623884593 4840 a9578332b6f3b35e198751fb632c9b79 ""
   "sphinxlatexindbibtoc.sty" 1623884593 2066 b93f8504d02f6337fde3074b179de55e ""
@@ -153,14 +153,14 @@
   "sphinxlatexstyletext.sty" 1623884593 5771 a578900e23c0331bf3e01507feb96320 ""
   "sphinxlatextables.sty" 1623884593 21848 2827eb0b11b99b185a8b77317d3e131c ""
   "sphinxmanual.cls" 1623884593 4236 124cd90deb92742b5d3922bfc2cd70c0 ""
-  "sphinxmessages.sty" 1626522981 745 3f5fcd6cdd7964ed608767954a8ced6f ""
+  "sphinxmessages.sty" 1626711827 745 3f5fcd6cdd7964ed608767954a8ced6f ""
   "sphinxoptionsgeometry.sty" 1623884593 2061 47bb34b8ed8a78823eb0c886abfb9f4d ""
   "sphinxoptionshyperref.sty" 1623884593 1093 22dd608777751296c61a93174b0f4bb8 ""
   "sphinxpackagefootnote.sty" 1623884593 13248 e2c77871396275ccf592403f8130f6f2 ""
   (generated)
   "gaussbetti.idx"
-  "gaussbetti.log"
+  "gaussbetti.pdf"
   "gaussbetti.aux"
   "gaussbetti.out"
   "gaussbetti.toc"
-  "gaussbetti.pdf"
+  "gaussbetti.log"

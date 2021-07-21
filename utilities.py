@@ -55,12 +55,11 @@ def likelihoodratio(correlation0,correlation1,X0,X1):
     Trans_X0 = np.transpose(X0)
     
 
-
-
     X1 = X1 - np.mean(X1)
     det_corr1 = np.sqrt(abs(np.linalg.det(correlation1)))
     inv_corr1 = np.linalg.inv(correlation1)
     Trans_X1 = np.transpose(X1)
+
 
 
     return None
