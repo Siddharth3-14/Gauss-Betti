@@ -1,5 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from numpy.lib.function_base import gradient
+from gaussClass import GaussianRandomField
+import topologicalFunc
 
 #TODO: solve the infinity problem
 #TODO: complete the likelihood ratio function
@@ -32,37 +35,80 @@ def KLdivergence(x,y1,y2):
     print("KL_fixed = ", sumkl)
     return sumkl
 
-def likelihoodratio(correlation0,correlation1,X0,X1):
-    """likelihoodratio
 
-    Calculates the likelihood ratio for the False alarm and detection.
-    
-    Args:
-        correlation0 (array): Correlation matrix for the Gaussian Random Field for null hypothesis.
-        correlation1 (array): Correlation matrix for the Gaussian Random Field for test hypothesis.
-        X0 (array): Gausian Random Field of null hypothesis as a 1-D array
-        X1 (array): Gaussian Random Field of test hypothesis as a 1-D array 
-       
+def Generate_Likelihhood_Array(Nsize,n0,n1,iteration):
+    Gaussian0 = GaussianRandomField(Nsize,n0)
+    Gaussian1 = GaussianRandomField(Nsize,n1)
+    corr0 = Gaussian0.corr_s
+    corr1 = Gaussian1.corr_s
+
+    inv_corr0 = np.linalg.inv(corr0)
+    inv_corr1 = np.linalg.inv(corr1)
+
+    det_corr0 = np.sqrt(abs(np.linalg.det(corr0)))
+    det_corr1 = np.sqrt(abs(np.linalg.det(corr1)))
+    x = np.log(det_corr0)
+    y = np.log(det_corr1)
+    diff = y - x
+
+    def likelihoodratio(X0,X1):
+        trans_X0 = np.transpose(X0)
+        trans_X1 = np.transpose(X1)
+        type1_n0 = -0.5*np.dot(trans_X1, np.dot(inv_corr0, X1))
+        type1_n1 = -0.5*np.dot(trans_X1, np.dot(inv_corr1, X1))
+        p0 = np.exp(type1_n0)
+        p1 = np.exp(type1_n1)
+
+        type1 = diff + np.log(p1) - np.log(p0)
+
+        type2_n0 = -0.5*np.dot(trans_X0, np.dot(inv_corr0, X0))
+        type2_n1 = -0.5*np.dot(trans_X0, np.dot(inv_corr1, X0))
+        q0 = np.exp(type2_n0)
+        q1 = np.exp(type2_n1)
+
+        type2 = -diff + np.log(q0) - np.log(q1)
+        return type1,type2
+
+    likelihoodratio0 = []
+    likelihoodratio1 = []
+    for _ in range(iteration):
+        tempGaussian0 = Gaussian0.Gen_GRF(type = 'array')
+        tempGaussian1 = Gaussian1.Gen_GRF(type = 'array')
+        tempType0,tempType1 = likelihoodratio(tempGaussian0,tempGaussian1)
+        likelihoodratio0.append(tempType0)
+        likelihoodratio1.append(tempType1)
+           
+    return likelihoodratio0,likelihoodratio1
+
+def Generate_BettiGeus_array(Nsize,n0,n1,average,iteration,thresholds_start,thresholds_stop,type='lower'):
+    Gaussian0 = GaussianRandomField(Nsize,n0)
+    Gaussian1 = GaussianRandomField(Nsize,n1)
+    size = int((thresholds_stop-thresholds_start)/0.01)
+    Betti_array0 = []
+    Betti_array1 = []
+    Genus_array0 = []
+    Genus_array1 = []
+
+    for _ in range(iteration):
         
-    Returns:
-       float: likelihood ratio
-    """
-
-
-    X0 = X0 - np.mean(X0)
-    det_corr0 = np.sqrt(abs(np.linalg.det(correlation0)))
-    inv_corr0 = np.linalg.inv(correlation0)
-    Trans_X0 = np.transpose(X0)
+        BettiAVG0 = np.zeros_like((2,size))
+        BettiAVG1 = np.zeros_like((2,size))
+        for _ in range(average):
+            temp_filtration0 = topologicalFunc.GaussianFiltration(Gaussian0.Gen_GRF())
+            temp_filtration1 = topologicalFunc.GaussianFiltration(Gaussian1.Gen_GRF())
+            BettiAVG0 += topologicalFunc.GenerateBettiP(temp_filtration0,thresholds_start,thresholds_stop,type)
+            BettiAVG1 += topologicalFunc.GenerateBettiP(temp_filtration1,thresholds_start,thresholds_stop,type)
+        BettiAVG0 = BettiAVG0/average
+        BettiAVG1 = BettiAVG1/average
+        GenusAVG0 = topologicalFunc.GenerateGenus(BettiAVG0)
+        GenusAVG1 = topologicalFunc.GenerateGenus(BettiAVG1)
     
+    Genus_array0.append(GenusAVG0)
+    Genus_array1.append(GenusAVG1)
+    Betti_array0.append(BettiAVG0)
+    Betti_array1.append(BettiAVG1)
 
-    X1 = X1 - np.mean(X1)
-    det_corr1 = np.sqrt(abs(np.linalg.det(correlation1)))
-    inv_corr1 = np.linalg.inv(correlation1)
-    Trans_X1 = np.transpose(X1)
-
-
-
-    return None
+    return [Betti_array1,Betti_array0,Genus_array0,Genus_array1]
 
 def plotROC(PFA,PD,nsize,num_iter,H0,H1,Betti,type):
     """plotROC
@@ -89,8 +135,6 @@ def plotROC(PFA,PD,nsize,num_iter,H0,H1,Betti,type):
     title = '{type} ROC Betti{Betti} {linebreak} Grid size = {nsize} iteration = {num_iter} {linebreak} power spectral index of null hypothesis:{H0}, test hypothesis:{H1} '.format(type = type,Betti=str(Betti),nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1),linebreak='\n' )
     plt.title(title)
     plt.savefig('Figures/{type}B{Betti}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.png'.format(type=type,Betti=str(Betti),nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1)))
-
-
 
 def SaveROC(PFA,PD,nsize,num_iter,H0,H1,Betti,type):
     """SaveROC
