@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from numpy.lib.function_base import gradient
 from gaussClass import GaussianRandomField
 import topologicalFunc
+import math
 
 #TODO: solve the infinity problem
 #TODO: complete the likelihood ratio function
@@ -39,17 +40,31 @@ def KLdivergence(x,y1,y2):
 def Generate_Likelihood_Array(Nsize,n0,n1,iteration):
     Gaussian0 = GaussianRandomField(Nsize,n0)
     Gaussian1 = GaussianRandomField(Nsize,n1)
+
     corr0 = Gaussian0.corr_s
     corr1 = Gaussian1.corr_s
 
     inv_corr0 = np.linalg.inv(corr0)
     inv_corr1 = np.linalg.inv(corr1)
 
-    det_corr0 = np.sqrt(abs(np.linalg.det(corr0)))
-    det_corr1 = np.sqrt(abs(np.linalg.det(corr1)))
+    det_corr0 = np.longfloat(np.sqrt(abs(np.linalg.det(corr0))))
+    det_corr1 = np.longfloat(np.sqrt(abs(np.linalg.det(corr1))))
+    print(det_corr1,det_corr0)
     x = np.log(det_corr0)
     y = np.log(det_corr1)
-    diff = y - x
+    diff = (y - x)
+    print(diff)
+
+    det_corr0 = np.longfloat(np.sqrt(  (abs(np.linalg.det(corr0)))**(1/(Nsize*Nsize))  ))
+    det_corr1 = np.longfloat(np.sqrt(  (abs(np.linalg.det(corr1)))**(1/(Nsize*Nsize))  ))
+    print(det_corr1,det_corr0)
+    x = np.log(det_corr0)
+    y = np.log(det_corr1)
+    diff = Nsize*Nsize*(y - x)
+
+    print(diff)
+    return None
+
 
     def likelihoodratio(X0,X1):
         trans_X0 = np.transpose(X0)
@@ -90,25 +105,26 @@ def Generate_BettiGenus_array(Nsize,n0,n1,average,iteration,thresholds_start,thr
     Genus_array1 = []
 
     for _ in range(iteration):
-        
-        BettiAVG0 = np.zeros_like((2,size))
-        BettiAVG1 = np.zeros_like((2,size))
+        BettiAVG0 = np.zeros((3,size))
+        BettiAVG1 = np.zeros((3,size))
         for _ in range(average):
             temp_filtration0 = topologicalFunc.GaussianFiltration(Gaussian0.Gen_GRF())
             temp_filtration1 = topologicalFunc.GaussianFiltration(Gaussian1.Gen_GRF())
-            BettiAVG0 += topologicalFunc.GenerateBettiP(temp_filtration0,thresholds_start,thresholds_stop,type)
-            BettiAVG1 += topologicalFunc.GenerateBettiP(temp_filtration1,thresholds_start,thresholds_stop,type)
+            temp_betti0 = topologicalFunc.GenerateBettiP(temp_filtration0,thresholds_start,thresholds_stop,type)
+            temp_betti1 = topologicalFunc.GenerateBettiP(temp_filtration1,thresholds_start,thresholds_stop,type)
+            BettiAVG0 += temp_betti0
+            BettiAVG1 += temp_betti1
         BettiAVG0 = BettiAVG0/average
         BettiAVG1 = BettiAVG1/average
         GenusAVG0 = topologicalFunc.GenerateGenus(BettiAVG0)
         GenusAVG1 = topologicalFunc.GenerateGenus(BettiAVG1)
     
-    Genus_array0.append(GenusAVG0)
-    Genus_array1.append(GenusAVG1)
-    Betti_array0.append(BettiAVG0)
-    Betti_array1.append(BettiAVG1)
+        Genus_array0.append(GenusAVG0)
+        Genus_array1.append(GenusAVG1)
+        Betti_array0.append(BettiAVG0)
+        Betti_array1.append(BettiAVG1)
 
-    return [Betti_array1,Betti_array0,Genus_array0,Genus_array1]
+    return [np.array(Betti_array1),np.array(Betti_array0),np.array(Genus_array0),np.array(Genus_array1)]
 
 def plotROC(PFA,PD,nsize,num_iter,H0,H1,Betti,type):
     """plotROC
