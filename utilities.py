@@ -4,6 +4,7 @@ from numpy.lib.function_base import gradient
 from gaussClass import GaussianRandomField
 import topologicalFunc
 import math
+import pandas as pd
 
 #TODO: solve the infinity problem
 #TODO: complete the likelihood ratio function
@@ -95,7 +96,7 @@ def Generate_Likelihood_Array(Nsize,n0,n1,iteration):
 
     return likelihoodratio0,likelihoodratio1
 
-def Generate_BettiGenus_array(Nsize,n0,n1,average,iteration,thresholds_start,thresholds_stop,type='lower'):
+def Generate_BettiGenus_array(Nsize,n0,n1,average,iteration,thresholds_start,thresholds_stop,type1='lower'):
     Gaussian0 = GaussianRandomField(Nsize,n0)
     Gaussian1 = GaussianRandomField(Nsize,n1)
     size = int((thresholds_stop-thresholds_start)/0.01)
@@ -110,8 +111,8 @@ def Generate_BettiGenus_array(Nsize,n0,n1,average,iteration,thresholds_start,thr
         for _ in range(average):
             temp_filtration0 = topologicalFunc.GaussianFiltration(Gaussian0.Gen_GRF())
             temp_filtration1 = topologicalFunc.GaussianFiltration(Gaussian1.Gen_GRF())
-            temp_betti0 = topologicalFunc.GenerateBettiP(temp_filtration0,thresholds_start,thresholds_stop,type)
-            temp_betti1 = topologicalFunc.GenerateBettiP(temp_filtration1,thresholds_start,thresholds_stop,type)
+            temp_betti0 = topologicalFunc.GenerateBettiP(temp_filtration0,thresholds_start,thresholds_stop,type1)
+            temp_betti1 = topologicalFunc.GenerateBettiP(temp_filtration1,thresholds_start,thresholds_stop,type1)
             BettiAVG0 += temp_betti0
             BettiAVG1 += temp_betti1
         BettiAVG0 = BettiAVG0/average
@@ -126,7 +127,7 @@ def Generate_BettiGenus_array(Nsize,n0,n1,average,iteration,thresholds_start,thr
 
     return [np.array(Betti_array1),np.array(Betti_array0),np.array(Genus_array0),np.array(Genus_array1)]
 
-def plotROC(PFA,PD,nsize,num_iter,H0,H1,Betti,type):
+def plotROC(PFA,PD,nsize,num_iter,H0,H1,type1,Betti='default'):
     """plotROC
 
     Plots the PFA and PD ROC graph with the labels provided through parameters.
@@ -138,21 +139,35 @@ def plotROC(PFA,PD,nsize,num_iter,H0,H1,Betti,type):
         num_iter (integer): Number of iteration for which ROC gen is run.
         H0 (integer): Power spectral index of Null Hypothesis.
         H1 (integer): Power spectral index of Test Hypothesis.
-        type (string): type of the ROC curve generated
+        type1 (string): type1 of the ROC curve generated takes value 'likelihood','betti','genus
+        Betti (integer): Dimension of Betti curve not needed when type = likelihood
+
         
     Returns:
         None: None
     """
-    plt.plot(PFA,PD)
-    plt.xlim(0,1)
-    plt.ylim(0,1)
-    plt.xlabel('PFA')
-    plt.ylabel('PD')
-    title = '{type} ROC Betti{Betti} {linebreak} Grid size = {nsize} iteration = {num_iter} {linebreak} power spectral index of null hypothesis:{H0}, test hypothesis:{H1} '.format(type = type,Betti=str(Betti),nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1),linebreak='\n' )
-    plt.title(title)
-    plt.savefig('Figures/{type}B{Betti}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.png'.format(type=type,Betti=str(Betti),nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1)))
+    if type1 =='likelihood':
+        plt.plot(PFA,PD)
+        plt.xlim(0,1)
+        plt.ylim(0,1)
+        plt.xlabel('PFA')
+        plt.ylabel('PD')
+        title = '{type1} ROC {linebreak} Grid size = {nsize} iteration = {num_iter} {linebreak} power spectral index of null hypothesis:{H0}, test hypothesis:{H1} '.format(type1 = type1,nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1),linebreak='\n' )
+        plt.title(title)
+        plt.savefig('Figures/{type1}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.png'.format(type1=type1,nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1)))
 
-def SaveROC(PFA,PD,nsize,num_iter,H0,H1,Betti,type):
+    else:
+        plt.plot(PFA,PD)
+        plt.xlim(0,1)
+        plt.ylim(0,1)
+        plt.xlabel('PFA')
+        plt.ylabel('PD')
+        title = '{type1} ROC Betti{Betti} {linebreak} Grid size = {nsize} iteration = {num_iter} {linebreak} power spectral index of null hypothesis:{H0}, test hypothesis:{H1} '.format(type1 = type1,Betti=str(Betti),nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1),linebreak='\n' )
+        plt.title(title)
+        plt.savefig('Figures/{type1}B{Betti}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.png'.format(type1=type1,Betti=str(Betti),nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1)))
+
+
+def saveROC(PFA,PD,nsize,num_iter,H0,H1,type1,Betti='default'):
     """SaveROC
 
     Saves the PFA and PD array with the labels provided through parameters.
@@ -164,14 +179,60 @@ def SaveROC(PFA,PD,nsize,num_iter,H0,H1,Betti,type):
         num_iter (integer): Number of iteration for which ROC gen is run.
         H0 (integer): Power spectral index of Null Hypothesis.
         H1 (integer): Power spectral index of Test Hypothesis.
-        type (string): type of the ROC curve generated
+        type1 (string): type1 of the ROC curve generated takes value 'likelihood','betti','genus
+        Betti (integer): Dimension of Betti curve not needed when type = likelihood
+
 
     Returns:
        None: None
     """
     length = PFA.shape[0]
-    file = open('Files/{type}B{Betti}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.txt'.format(type=type,Betti=str(Betti),nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1)),'w+')
-    file.write('PFA' + '\t' + 'PD' +'\n')
-    for i in range(length):
-        file.write(str(PFA[i]) + '\t' + str(PD[i])+'\n')
-    file.close()
+    if type1 == 'likelihood':
+        length = PFA.shape[0]
+        file = open('Files/{type1}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.txt'.format(type1=type1,nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1)),'w+')
+        file.write('PFA' + '\t' + 'PD' +'\n')
+        for i in range(length):
+            file.write(str(PFA[i]) + '\t' + str(PD[i])+'\n')
+        file.close()
+    else:
+        file = open('Files/{type1}B{Betti}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.txt'.format(type1=type1,Betti=str(Betti),nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1)),'w+')
+        file.write('PFA' + '\t' + 'PD' +'\n')
+        for i in range(length):
+            file.write(str(PFA[i]) + '\t' + str(PD[i])+'\n')
+        file.close()
+
+
+
+def readROC(nsize,num_iter,H0,H1,type1,Betti='default'):
+    """readROC
+
+    Reads the PFA and PD array from the files generated using saveROC.
+    
+    Args:
+        nsize (integer): Size of the Gaussian Random Fields grid.
+        num_iter (integer): Number of iteration for which ROC gen is run.
+        H0 (integer): Power spectral index of Null Hypothesis.
+        H1 (integer): Power spectral index of Test Hypothesis.
+        type1 (string): type1 of the ROC curve generated takes value 'likelihood','betti','genus
+        Betti (integer): Dimension of Betti curve not needed when type = likelihood
+
+    Returns:
+       Numpy Array: Returns PFA and PD arrays 
+    """
+
+    if type1 == 'likelihood':
+        filename = 'Files/{type1}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.txt'.format(type1=type1,nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1))
+        Data = pd.read_csv(filename,delimiter='\s+')
+        PFA=Data['PFA']
+        PD=Data['PD']
+        return np.array([PFA,PD])
+        # PFA = Data[0]
+        # PD = Data[1]
+        # return [PFA,PD]
+    else:
+        filename = 'Files/{type1}B{Betti}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.txt'.format(type1=type1,Betti=str(Betti),nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1))
+        Data = pd.read_csv(filename,delimiter='\s+')
+        PFA=Data['PFA']
+        PD=Data['PD']
+        return np.array([PFA,PD])
+

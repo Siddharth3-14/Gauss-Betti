@@ -25,5 +25,3 @@ filtration_thhreshold_stop = 4
 # utilities.plotROC(PFA_Genus,PD_Genus,Nsize,iteration,power_index_null,power_index_test,'Genus')
 # utilities.SaveROC(PFA_Genus,PD_Genus,Nsize,iteration,power_index_null,power_index_test,'Genus')
 
-
-
