@@ -12,6 +12,7 @@ Welcome to GaussBetti's documentation!
    topologicalFunc
    utilities
    gaussClass
+   rocGen
    
 
 

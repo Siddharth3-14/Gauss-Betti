@@ -611,6 +611,115 @@ Generates the correlation matrices in fourier and spatial spcae.
 
 
 
+\chapter{rocGen}
+\label{\detokenize{rocGen:rocgen}}\label{\detokenize{rocGen:id1}}\label{\detokenize{rocGen::doc}}\phantomsection\label{\detokenize{rocGen:module-rocGen}}\index{module@\spxentry{module}!rocGen@\spxentry{rocGen}}\index{rocGen@\spxentry{rocGen}!module@\spxentry{module}}\index{BettiROC() (in module rocGen)@\spxentry{BettiROC()}\spxextra{in module rocGen}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{rocGen:rocGen.BettiROC}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{rocGen.}}\sphinxbfcode{\sphinxupquote{BettiROC}}}{\emph{\DUrole{n}{Betti\_array0}}, \emph{\DUrole{n}{Betti\_array1}}, \emph{\DUrole{n}{threshold\_step}}}{}
+\sphinxAtStartPar
+Generates PFA and PD values from Betti curves using the specified parameters
+\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{Betti\_array0}} (\sphinxstyleliteralemphasis{\sphinxupquote{array}}) \textendash{} multiple Betti curves for null hypothesis generated from GenerateBetti function for a one dimension.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{Betti\_array1}} (\sphinxstyleliteralemphasis{\sphinxupquote{array}}) \textendash{} multiple Betti curves for test hypothesis generated from GenerateBetti function for a one dimension.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{threshold\_step}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \textendash{} Step value for generating threshold array.
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+\sphinxAtStartPar
+PFA and PD values
+
+\item[{Return type}] \leavevmode
+\sphinxAtStartPar
+Array
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{GenusROC() (in module rocGen)@\spxentry{GenusROC()}\spxextra{in module rocGen}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{rocGen:rocGen.GenusROC}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{rocGen.}}\sphinxbfcode{\sphinxupquote{GenusROC}}}{\emph{\DUrole{n}{Genus\_array0}}, \emph{\DUrole{n}{Genus\_array1}}, \emph{\DUrole{n}{threshold\_step}}}{}
+\sphinxAtStartPar
+Generates PFA and PD values from Genus curves using the specified parameters
+\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{Genus\_array0}} (\sphinxstyleliteralemphasis{\sphinxupquote{array}}) \textendash{} multiple Genus curves for null hypothesis generated from GenerateBetti function for a one dimension.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{Genus\_array1}} (\sphinxstyleliteralemphasis{\sphinxupquote{array}}) \textendash{} multiple Genus curves for test hypothesis generated from GenerateBetti function for a one dimension.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{index}} (\sphinxstyleliteralemphasis{\sphinxupquote{integer}}) \textendash{} index at which the Genus value is calculated and compared with threshold.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{threshold\_step}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \textendash{} Step value for generating threshold array.
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+\sphinxAtStartPar
+PFA and PD values
+
+\item[{Return type}] \leavevmode
+\sphinxAtStartPar
+Array
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{LikelihoodROC() (in module rocGen)@\spxentry{LikelihoodROC()}\spxextra{in module rocGen}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{rocGen:rocGen.LikelihoodROC}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{rocGen.}}\sphinxbfcode{\sphinxupquote{LikelihoodROC}}}{\emph{\DUrole{n}{likelihoodratio0}}, \emph{\DUrole{n}{likelihoodratio1}}, \emph{\DUrole{n}{threshold\_step}}}{}
+\sphinxAtStartPar
+Generates PFA and PD values from likelihood ratios of the Gaussian Random Field using the specified parameters
+\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{likelihoodratio0}} (\sphinxstyleliteralemphasis{\sphinxupquote{array}}) \textendash{} arrays containing likelihood ratios of the Gaussian Random field of type 1 see doc for likelihoodratio .
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{likelihoodratio1}} \textendash{} 2\sphinxhyphen{}D arrays containing likelihood ratios of the Gaussian Random field of type 2 see doc for likelihoodratio
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{threshold\_step}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \textendash{} Step value for generating threshold array.
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+\sphinxAtStartPar
+PFA and PD values
+
+\item[{Return type}] \leavevmode
+\sphinxAtStartPar
+Array
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+
+
 \chapter{Indices and tables}
 \label{\detokenize{index:indices-and-tables}}\begin{itemize}
 \item {} 
@@ -633,6 +742,9 @@ Generates the correlation matrices in fourier and spatial spcae.
 \let\bigletter\sphinxstyleindexlettergroup
 \bigletter{g}
 \item\relax\sphinxstyleindexentry{gaussClass}\sphinxstyleindexpageref{gaussClass:\detokenize{module-gaussClass}}
+\indexspace
+\bigletter{r}
+\item\relax\sphinxstyleindexentry{rocGen}\sphinxstyleindexpageref{rocGen:\detokenize{module-rocGen}}
 \indexspace
 \bigletter{t}
 \item\relax\sphinxstyleindexentry{topologicalFunc}\sphinxstyleindexpageref{topologicalFunc:\detokenize{module-topologicalFunc}}

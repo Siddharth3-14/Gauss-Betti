@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>rocGen &mdash; GaussBetti 2.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="gaussClass" href="gaussClass.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GaussBetti
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="topologicalFunc.html">topologicalFunc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gaussClass.html">gaussClass</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">rocGen</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GaussBetti</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>rocGen</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/rocGen.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="rocgen">
+<span id="id1"></span><h1>rocGen<a class="headerlink" href="#rocgen" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-rocGen"></span><dl class="py function">
+<dt class="sig sig-object py" id="rocGen.BettiROC">
+<span class="sig-prename descclassname"><span class="pre">rocGen.</span></span><span class="sig-name descname"><span class="pre">BettiROC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Betti_array0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Betti_array1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_step</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocGen.BettiROC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates PFA and PD values from Betti curves using the specified parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Betti_array0</strong> (<em>array</em>) – multiple Betti curves for null hypothesis generated from GenerateBetti function for a one dimension.</p></li>
+<li><p><strong>Betti_array1</strong> (<em>array</em>) – multiple Betti curves for test hypothesis generated from GenerateBetti function for a one dimension.</p></li>
+<li><p><strong>threshold_step</strong> (<em>float</em>) – Step value for generating threshold array.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>PFA and PD values</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocGen.GenusROC">
+<span class="sig-prename descclassname"><span class="pre">rocGen.</span></span><span class="sig-name descname"><span class="pre">GenusROC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Genus_array0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Genus_array1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_step</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocGen.GenusROC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates PFA and PD values from Genus curves using the specified parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Genus_array0</strong> (<em>array</em>) – multiple Genus curves for null hypothesis generated from GenerateBetti function for a one dimension.</p></li>
+<li><p><strong>Genus_array1</strong> (<em>array</em>) – multiple Genus curves for test hypothesis generated from GenerateBetti function for a one dimension.</p></li>
+<li><p><strong>index</strong> (<em>integer</em>) – index at which the Genus value is calculated and compared with threshold.</p></li>
+<li><p><strong>threshold_step</strong> (<em>float</em>) – Step value for generating threshold array.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>PFA and PD values</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocGen.LikelihoodROC">
+<span class="sig-prename descclassname"><span class="pre">rocGen.</span></span><span class="sig-name descname"><span class="pre">LikelihoodROC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">likelihoodratio0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">likelihoodratio1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_step</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocGen.LikelihoodROC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates PFA and PD values from likelihood ratios of the Gaussian Random Field using the specified parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>likelihoodratio0</strong> (<em>array</em>) – arrays containing likelihood ratios of the Gaussian Random field of type 1 see doc for likelihoodratio .</p></li>
+<li><p><strong>likelihoodratio1</strong> – 2-D arrays containing likelihood ratios of the Gaussian Random field of type 2 see doc for likelihoodratio</p></li>
+<li><p><strong>threshold_step</strong> (<em>float</em>) – Step value for generating threshold array.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>PFA and PD values</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Array</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="gaussClass.html" class="btn btn-neutral float-left" title="gaussClass" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Siddharth.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

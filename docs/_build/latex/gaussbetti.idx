@@ -24,3 +24,8 @@
 \indexentry{PowerSpectrum\_grid\_generator() (gaussClass.GaussianRandomField method)@\spxentry{PowerSpectrum\_grid\_generator()}\spxextra{gaussClass.GaussianRandomField method}|hyperpage}{7}
 \indexentry{fourier\_space\_ind() (gaussClass.GaussianRandomField method)@\spxentry{fourier\_space\_ind()}\spxextra{gaussClass.GaussianRandomField method}|hyperpage}{7}
 \indexentry{gen\_correlation() (gaussClass.GaussianRandomField method)@\spxentry{gen\_correlation()}\spxextra{gaussClass.GaussianRandomField method}|hyperpage}{7}
+\indexentry{module@\spxentry{module}!rocGen@\spxentry{rocGen}|hyperpage}{9}
+\indexentry{rocGen@\spxentry{rocGen}!module@\spxentry{module}|hyperpage}{9}
+\indexentry{BettiROC() (in module rocGen)@\spxentry{BettiROC()}\spxextra{in module rocGen}|hyperpage}{9}
+\indexentry{GenusROC() (in module rocGen)@\spxentry{GenusROC()}\spxextra{in module rocGen}|hyperpage}{9}
+\indexentry{LikelihoodROC() (in module rocGen)@\spxentry{LikelihoodROC()}\spxextra{in module rocGen}|hyperpage}{9}

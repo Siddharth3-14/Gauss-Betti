@@ -4,6 +4,10 @@
 \let\spxentry \sphinxstyleindexentry
 \let\spxextra \sphinxstyleindexextra
 
+  \bigletter B
+  \item \spxentry{BettiROC()}\spxextra{in module rocGen}, \hyperpage{9}
+
+  \indexspace
   \bigletter C
   \item \spxentry{corr\_f}\spxextra{gaussClass.GaussianRandomField attribute}, \hyperpage{7}
   \item \spxentry{corr\_s}\spxextra{gaussClass.GaussianRandomField attribute}, \hyperpage{7}
@@ -26,6 +30,7 @@
   \item \spxentry{Generate\_Likelihood\_Array()}\spxextra{in module utilities}, \hyperpage{3}
   \item \spxentry{GenerateBettiP()}\spxextra{in module topologicalFunc}, \hyperpage{1}
   \item \spxentry{GenerateGenus()}\spxextra{in module topologicalFunc}, \hyperpage{1}
+  \item \spxentry{GenusROC()}\spxextra{in module rocGen}, \hyperpage{9}
 
   \indexspace
   \bigletter K
@@ -33,9 +38,14 @@
   \item \spxentry{KLdivergence()}\spxextra{in module utilities}, \hyperpage{3}
 
   \indexspace
+  \bigletter L
+  \item \spxentry{LikelihoodROC()}\spxextra{in module rocGen}, \hyperpage{9}
+
+  \indexspace
   \bigletter M
   \item \spxentry{module}
     \subitem \spxentry{gaussClass}, \hyperpage{7}
+    \subitem \spxentry{rocGen}, \hyperpage{9}
     \subitem \spxentry{topologicalFunc}, \hyperpage{1}
     \subitem \spxentry{utilities}, \hyperpage{3}
 
@@ -54,6 +64,8 @@
   \indexspace
   \bigletter R
   \item \spxentry{readROC()}\spxextra{in module utilities}, \hyperpage{4}
+  \item \spxentry{rocGen}
+    \subitem \spxentry{module}, \hyperpage{9}
 
   \indexspace
   \bigletter S

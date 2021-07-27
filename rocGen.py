@@ -6,8 +6,8 @@ def LikelihoodROC(likelihoodratio0,likelihoodratio1,threshold_step):
     Generates PFA and PD values from likelihood ratios of the Gaussian Random Field using the specified parameters
     
     Args:
-        likelihoodratio0 (array): 2-D arrays containing lieklihood ratios of the Gaussian Random field of type 1 see doc for likelihoodratio .
-        likelihoodratio1: 2-D arrays containing lieklihood ratios of the Gaussian Random field of type 2 see doc for likelihoodratio
+        likelihoodratio0 (array):arrays containing likelihood ratios of the Gaussian Random field of type 1 see doc for likelihoodratio .
+        likelihoodratio1: 2-D arrays containing likelihood ratios of the Gaussian Random field of type 2 see doc for likelihoodratio
         threshold_step (float): Step value for generating threshold array.
 
     Returns:
