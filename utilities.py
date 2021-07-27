@@ -6,10 +6,6 @@ import topologicalFunc
 import math
 import pandas as pd
 
-#TODO: solve the infinity problem
-#TODO: complete the likelihood ratio function
-#TODO: finish documentation for the KLdivergence
-
 def KLdivergence(x,y1,y2):
     """KLdivergence
 
@@ -38,52 +34,49 @@ def KLdivergence(x,y1,y2):
     return sumkl
 
 
-def Generate_Likelihood_Array(Nsize,n0,n1,iteration):
-    Gaussian0 = GaussianRandomField(Nsize,n0)
-    Gaussian1 = GaussianRandomField(Nsize,n1)
+def Generate_Likelihood_Array(Nsize,power_index_null,power_index_test,iteration):
+    """Generate_Likelihood_Array
+
+    Generates the array of likelihood ratios for making ROC curves.
+    
+    Args:
+        Nsize (integer): grid size of the Gaussian Random Field 
+        power_index_null (float): Power spectral index of Null Hypothesis
+        power_index_test (float): Power spectral index of Test Hypothesis
+        iteration (integer): Size of the likelihood ratio array generated 
+ 
+               
+    Returns:
+       numpy array: array of likelihood ratios
+    """
+    Gaussian0 = GaussianRandomField(Nsize,power_index_null)
+    Gaussian1 = GaussianRandomField(Nsize,power_index_test)
 
     corr0 = Gaussian0.corr_s
     corr1 = Gaussian1.corr_s
 
     inv_corr0 = np.linalg.inv(corr0)
     inv_corr1 = np.linalg.inv(corr1)
-
-    det_corr0 = np.longfloat(np.sqrt(abs(np.linalg.det(corr0))))
-    det_corr1 = np.longfloat(np.sqrt(abs(np.linalg.det(corr1))))
-    print(det_corr1,det_corr0)
-    x = np.log(det_corr0)
-    y = np.log(det_corr1)
-    diff = (y - x)
-    print(diff)
-
-    det_corr0 = np.longfloat(np.sqrt(  (abs(np.linalg.det(corr0)))**(1/(Nsize*Nsize))  ))
-    det_corr1 = np.longfloat(np.sqrt(  (abs(np.linalg.det(corr1)))**(1/(Nsize*Nsize))  ))
-    print(det_corr1,det_corr0)
-    x = np.log(det_corr0)
-    y = np.log(det_corr1)
-    diff = Nsize*Nsize*(y - x)
-
-    print(diff)
-    return None
-
-
+    
     def likelihoodratio(X0,X1):
         trans_X0 = np.transpose(X0)
         trans_X1 = np.transpose(X1)
+        det_corr0 = np.longfloat(np.sqrt(abs(np.linalg.det(corr0))))
+        det_corr1 = np.longfloat(np.sqrt(abs(np.linalg.det(corr1))))
+
         type1_n0 = -0.5*np.dot(trans_X1, np.dot(inv_corr0, X1))
         type1_n1 = -0.5*np.dot(trans_X1, np.dot(inv_corr1, X1))
-        p0 = np.exp(type1_n0)
-        p1 = np.exp(type1_n1)
-
-        type1 = diff + np.log(p1) - np.log(p0)
 
         type2_n0 = -0.5*np.dot(trans_X0, np.dot(inv_corr0, X0))
         type2_n1 = -0.5*np.dot(trans_X0, np.dot(inv_corr1, X0))
-        q0 = np.exp(type2_n0)
-        q1 = np.exp(type2_n1)
 
-        type2 = -diff + np.log(q0) - np.log(q1)
-        return type1,type2
+
+        type0 = type2_n0 + np.log(det_corr1) - type2_n1 - np.log(det_corr0)
+        type1 = type1_n1 + np.log(det_corr0) - type1_n0 - np.log(det_corr1)
+
+        
+        return type0,type1
+
 
     likelihoodratio0 = []
     likelihoodratio1 = []
@@ -94,12 +87,31 @@ def Generate_Likelihood_Array(Nsize,n0,n1,iteration):
         likelihoodratio0.append(tempType0)
         likelihoodratio1.append(tempType1)
 
-    return likelihoodratio0,likelihoodratio1
+    print('Finished generating the likelihood arrays')
+    return np.array([likelihoodratio0,likelihoodratio1])
 
-def Generate_BettiGenus_array(Nsize,n0,n1,average,iteration,thresholds_start,thresholds_stop,type1='lower'):
-    Gaussian0 = GaussianRandomField(Nsize,n0)
-    Gaussian1 = GaussianRandomField(Nsize,n1)
-    size = int((thresholds_stop-thresholds_start)/0.01)
+def Generate_BettiGenus_array(Nsize,power_index_null,power_index_test,average,iteration,filtration_threshold_start,filtration_threshold_stop,type1='lower'):
+    """Generate_Likelihood_Array
+
+    Generates the Betti and Genus curves for specified parameters.
+    
+    Args:
+        Nsize (integer): grid size of the Gaussian Random Field 
+        power_index_null (float): Power spectral index of Null Hypothesis
+        power_index_test (float): Power spectral index of Test Hypothesis
+        average (integer): No. of times the betti curves need to be averaged
+        iteration (integer): Size of the arrays generated
+        filtration_threshold_start (float): Start value for generating filtraion from dionysus
+        filtration_threshold_stop (float): Stop value for generation filtration from dionysus
+        type : Type of filtration accepted values are 'lower' 'upper 
+ 
+               
+    Returns:
+       numpy array: array of Betti and Genus curves
+    """
+    Gaussian0 = GaussianRandomField(Nsize,power_index_null)
+    Gaussian1 = GaussianRandomField(Nsize,power_index_test)
+    size = int((filtration_threshold_stop-filtration_threshold_start)/0.01)
     Betti_array0 = []
     Betti_array1 = []
     Genus_array0 = []
@@ -111,8 +123,8 @@ def Generate_BettiGenus_array(Nsize,n0,n1,average,iteration,thresholds_start,thr
         for _ in range(average):
             temp_filtration0 = topologicalFunc.GaussianFiltration(Gaussian0.Gen_GRF())
             temp_filtration1 = topologicalFunc.GaussianFiltration(Gaussian1.Gen_GRF())
-            temp_betti0 = topologicalFunc.GenerateBettiP(temp_filtration0,thresholds_start,thresholds_stop,type1)
-            temp_betti1 = topologicalFunc.GenerateBettiP(temp_filtration1,thresholds_start,thresholds_stop,type1)
+            temp_betti0 = topologicalFunc.GenerateBettiP(temp_filtration0,filtration_threshold_start,filtration_threshold_stop,type1)
+            temp_betti1 = topologicalFunc.GenerateBettiP(temp_filtration1,filtration_threshold_start,filtration_threshold_stop,type1)
             BettiAVG0 += temp_betti0
             BettiAVG1 += temp_betti1
         BettiAVG0 = BettiAVG0/average
@@ -124,7 +136,7 @@ def Generate_BettiGenus_array(Nsize,n0,n1,average,iteration,thresholds_start,thr
         Genus_array1.append(GenusAVG1)
         Betti_array0.append(BettiAVG0)
         Betti_array1.append(BettiAVG1)
-
+    print('Finished generating Betti and Genus arrays')
     return [np.array(Betti_array1),np.array(Betti_array0),np.array(Genus_array0),np.array(Genus_array1)]
 
 def plotROC(PFA,PD,nsize,num_iter,H0,H1,type1,Betti='default'):
@@ -137,8 +149,8 @@ def plotROC(PFA,PD,nsize,num_iter,H0,H1,type1,Betti='default'):
         PD (array): numpy vector. THe PD array generated during ROC gen.
         nsize (integer): Size of the Gaussian Random Fields grid.
         num_iter (integer): Number of iteration for which ROC gen is run.
-        H0 (integer): Power spectral index of Null Hypothesis.
-        H1 (integer): Power spectral index of Test Hypothesis.
+        H0 (float): Power spectral index of Null Hypothesis.
+        H1 (float): Power spectral index of Test Hypothesis.
         type1 (string): type1 of the ROC curve generated takes value 'likelihood','betti','genus
         Betti (integer): Dimension of Betti curve not needed when type = likelihood
 
@@ -146,25 +158,30 @@ def plotROC(PFA,PD,nsize,num_iter,H0,H1,type1,Betti='default'):
     Returns:
         None: None
     """
-    if type1 =='likelihood':
+    if type1 =='betti':
         plt.plot(PFA,PD)
-        plt.xlim(0,1)
-        plt.ylim(0,1)
-        plt.xlabel('PFA')
-        plt.ylabel('PD')
-        title = '{type1} ROC {linebreak} Grid size = {nsize} iteration = {num_iter} {linebreak} power spectral index of null hypothesis:{H0}, test hypothesis:{H1} '.format(type1 = type1,nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1),linebreak='\n' )
-        plt.title(title)
-        plt.savefig('Figures/{type1}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.png'.format(type1=type1,nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1)))
-
-    else:
-        plt.plot(PFA,PD)
-        plt.xlim(0,1)
-        plt.ylim(0,1)
+        plt.xlim(-.1,1.1)
+        plt.ylim(-.1,1.1)
         plt.xlabel('PFA')
         plt.ylabel('PD')
         title = '{type1} ROC Betti{Betti} {linebreak} Grid size = {nsize} iteration = {num_iter} {linebreak} power spectral index of null hypothesis:{H0}, test hypothesis:{H1} '.format(type1 = type1,Betti=str(Betti),nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1),linebreak='\n' )
         plt.title(title)
+        # plt.show()
+        print('Finished saving the plot')
         plt.savefig('Figures/{type1}B{Betti}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.png'.format(type1=type1,Betti=str(Betti),nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1)))
+
+
+    else:
+        plt.plot(PFA,PD)
+        plt.xlim(-.1,1.1)
+        plt.ylim(-.1,1.1)
+        plt.xlabel('PFA')
+        plt.ylabel('PD')
+        title = '{type1} ROC {linebreak} Grid size = {nsize} iteration = {num_iter} {linebreak} power spectral index of null hypothesis:{H0}, test hypothesis:{H1} '.format(type1 = type1,nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1),linebreak='\n' )
+        plt.title(title)
+        # plt.show()
+        plt.savefig('Figures/{type1}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.png'.format(type1=type1,nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1)))
+        print('Finished saving the plot')
 
 
 def saveROC(PFA,PD,nsize,num_iter,H0,H1,type1,Betti='default'):
@@ -177,30 +194,29 @@ def saveROC(PFA,PD,nsize,num_iter,H0,H1,type1,Betti='default'):
         PD (array): numpy vector. THe PD array generated during ROC gen.
         nsize (integer): Size of the Gaussian Random Fields grid.
         num_iter (integer): Number of iteration for which ROC gen is run.
-        H0 (integer): Power spectral index of Null Hypothesis.
-        H1 (integer): Power spectral index of Test Hypothesis.
+        H0 (float): Power spectral index of Null Hypothesis.
+        H1 (float): Power spectral index of Test Hypothesis.
         type1 (string): type1 of the ROC curve generated takes value 'likelihood','betti','genus
         Betti (integer): Dimension of Betti curve not needed when type = likelihood
-
-
     Returns:
        None: None
     """
     length = PFA.shape[0]
-    if type1 == 'likelihood':
-        length = PFA.shape[0]
-        file = open('Files/{type1}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.txt'.format(type1=type1,nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1)),'w+')
-        file.write('PFA' + '\t' + 'PD' +'\n')
-        for i in range(length):
-            file.write(str(PFA[i]) + '\t' + str(PD[i])+'\n')
-        file.close()
-    else:
+    if type1 == 'betti':
         file = open('Files/{type1}B{Betti}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.txt'.format(type1=type1,Betti=str(Betti),nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1)),'w+')
         file.write('PFA' + '\t' + 'PD' +'\n')
         for i in range(length):
             file.write(str(PFA[i]) + '\t' + str(PD[i])+'\n')
         file.close()
+        print('Finished saving the PFA and PD arrays')
 
+    else:
+        file = open('Files/{type1}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.txt'.format(type1=type1,nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1)),'w+')
+        file.write('PFA' + '\t' + 'PD' +'\n')
+        for i in range(length):
+            file.write(str(PFA[i]) + '\t' + str(PD[i])+'\n')
+        file.close()
+        print('Finished saving the PFA and PD arrays')
 
 
 def readROC(nsize,num_iter,H0,H1,type1,Betti='default'):
@@ -220,19 +236,23 @@ def readROC(nsize,num_iter,H0,H1,type1,Betti='default'):
        Numpy Array: Returns PFA and PD arrays 
     """
 
-    if type1 == 'likelihood':
-        filename = 'Files/{type1}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.txt'.format(type1=type1,nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1))
-        Data = pd.read_csv(filename,delimiter='\s+')
-        PFA=Data['PFA']
-        PD=Data['PD']
-        return np.array([PFA,PD])
-        # PFA = Data[0]
-        # PD = Data[1]
-        # return [PFA,PD]
-    else:
+    if type1 == 'betti':
         filename = 'Files/{type1}B{Betti}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.txt'.format(type1=type1,Betti=str(Betti),nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1))
         Data = pd.read_csv(filename,delimiter='\s+')
         PFA=Data['PFA']
         PD=Data['PD']
+        print('Finished reading the PFA and PD arrays')
+
+        return np.array([PFA,PD])
+
+        # PFA = Data[0]
+        # PD = Data[1]
+        # return [PFA,PD]
+    else:
+        filename = 'Files/{type1}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.txt'.format(type1=type1,nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1))
+        Data = pd.read_csv(filename,delimiter='\s+')
+        PFA=Data['PFA']
+        PD=Data['PD']
+        print('Finished reading the PFA and PD arrays')
         return np.array([PFA,PD])
 
