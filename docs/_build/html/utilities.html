@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Utilities &mdash; GaussBetti 1.0.0 documentation</title>
@@ -158,9 +159,58 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="utilities">
+  <section id="utilities">
 <span id="id1"></span><h1>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h1>
 <span class="target" id="module-utilities"></span><dl class="py function">
+<dt class="sig sig-object py" id="utilities.Generate_BettiGenus_array">
+<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">Generate_BettiGenus_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Nsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power_index_null</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power_index_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">average</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filtration_threshold_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filtration_threshold_stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lower'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.Generate_BettiGenus_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate_Likelihood_Array</p>
+<p>Generates the Betti and Genus curves for specified parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Nsize</strong> (<em>integer</em>) – grid size of the Gaussian Random Field</p></li>
+<li><p><strong>power_index_null</strong> (<em>float</em>) – Power spectral index of Null Hypothesis</p></li>
+<li><p><strong>power_index_test</strong> (<em>float</em>) – Power spectral index of Test Hypothesis</p></li>
+<li><p><strong>average</strong> (<em>integer</em>) – No. of times the betti curves need to be averaged</p></li>
+<li><p><strong>iteration</strong> (<em>integer</em>) – Size of the arrays generated</p></li>
+<li><p><strong>filtration_threshold_start</strong> (<em>float</em>) – Start value for generating filtraion from dionysus</p></li>
+<li><p><strong>filtration_threshold_stop</strong> (<em>float</em>) – Stop value for generation filtration from dionysus</p></li>
+<li><p><strong>type</strong> – Type of filtration accepted values are ‘lower’ ‘upper</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>array of Betti and Genus curves</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.Generate_Likelihood_Array">
+<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">Generate_Likelihood_Array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Nsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power_index_null</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power_index_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.Generate_Likelihood_Array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates the array of likelihood ratios for making ROC curves.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Nsize</strong> (<em>integer</em>) – grid size of the Gaussian Random Field</p></li>
+<li><p><strong>power_index_null</strong> (<em>float</em>) – Power spectral index of Null Hypothesis</p></li>
+<li><p><strong>power_index_test</strong> (<em>float</em>) – Power spectral index of Test Hypothesis</p></li>
+<li><p><strong>iteration</strong> (<em>integer</em>) – Size of the likelihood ratio array generated</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>array of likelihood ratios</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="utilities.KLdivergence">
 <span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">KLdivergence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.KLdivergence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the KL divergence for 2 different Gaussian Random Field.</p>
@@ -182,55 +232,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="utilities.SaveROC">
-<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">SaveROC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">PFA</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PD</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_iter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Betti</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.SaveROC" title="Permalink to this definition">¶</a></dt>
-<dd><p>Saves the PFA and PD array with the labels provided through parameters.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>PFA</strong> (<em>array</em>) – numpy vector. The PFA array generated during ROC gen.</p></li>
-<li><p><strong>PD</strong> (<em>array</em>) – numpy vector. THe PD array generated during ROC gen.</p></li>
-<li><p><strong>nsize</strong> (<em>integer</em>) – Size of the Gaussian Random Fields grid.</p></li>
-<li><p><strong>num_iter</strong> (<em>integer</em>) – Number of iteration for which ROC gen is run.</p></li>
-<li><p><strong>H0</strong> (<em>integer</em>) – Power spectral index of Null Hypothesis.</p></li>
-<li><p><strong>H1</strong> (<em>integer</em>) – Power spectral index of Test Hypothesis.</p></li>
-<li><p><strong>type</strong> (<em>string</em>) – type of the ROC curve generated</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>None</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="utilities.likelihoodratio">
-<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">likelihoodratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">correlation0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlation1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.likelihoodratio" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the likelihood ratio for the False alarm and detection.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>correlation0</strong> (<em>array</em>) – Correlation matrix for the Gaussian Random Field for null hypothesis.</p></li>
-<li><p><strong>correlation1</strong> (<em>array</em>) – Correlation matrix for the Gaussian Random Field for test hypothesis.</p></li>
-<li><p><strong>X0</strong> (<em>array</em>) – Gausian Random Field of null hypothesis as a 1-D array</p></li>
-<li><p><strong>X1</strong> (<em>array</em>) – Gaussian Random Field of test hypothesis as a 1-D array</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>likelihood ratio</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="utilities.plotROC">
-<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">plotROC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">PFA</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PD</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_iter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Betti</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.plotROC" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">plotROC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">PFA</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PD</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_iter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Betti</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.plotROC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots the PFA and PD ROC graph with the labels provided through parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -239,9 +242,10 @@
 <li><p><strong>PD</strong> (<em>array</em>) – numpy vector. THe PD array generated during ROC gen.</p></li>
 <li><p><strong>nsize</strong> (<em>integer</em>) – Size of the Gaussian Random Fields grid.</p></li>
 <li><p><strong>num_iter</strong> (<em>integer</em>) – Number of iteration for which ROC gen is run.</p></li>
-<li><p><strong>H0</strong> (<em>integer</em>) – Power spectral index of Null Hypothesis.</p></li>
-<li><p><strong>H1</strong> (<em>integer</em>) – Power spectral index of Test Hypothesis.</p></li>
-<li><p><strong>type</strong> (<em>string</em>) – type of the ROC curve generated</p></li>
+<li><p><strong>H0</strong> (<em>float</em>) – Power spectral index of Null Hypothesis.</p></li>
+<li><p><strong>H1</strong> (<em>float</em>) – Power spectral index of Test Hypothesis.</p></li>
+<li><p><strong>type1</strong> (<em>string</em>) – type1 of the ROC curve generated takes value ‘likelihood’,’betti’,’genus</p></li>
+<li><p><strong>Betti</strong> (<em>integer</em>) – Dimension of Betti curve not needed when type = likelihood</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -253,7 +257,58 @@
 </dl>
 </dd></dl>
 
-</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.readROC">
+<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">readROC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_iter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Betti</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.readROC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the PFA and PD array from the files generated using saveROC.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nsize</strong> (<em>integer</em>) – Size of the Gaussian Random Fields grid.</p></li>
+<li><p><strong>num_iter</strong> (<em>integer</em>) – Number of iteration for which ROC gen is run.</p></li>
+<li><p><strong>H0</strong> (<em>integer</em>) – Power spectral index of Null Hypothesis.</p></li>
+<li><p><strong>H1</strong> (<em>integer</em>) – Power spectral index of Test Hypothesis.</p></li>
+<li><p><strong>type1</strong> (<em>string</em>) – type1 of the ROC curve generated takes value ‘likelihood’,’betti’,’genus</p></li>
+<li><p><strong>Betti</strong> (<em>integer</em>) – Dimension of Betti curve not needed when type = likelihood</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns PFA and PD arrays</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Numpy Array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utilities.saveROC">
+<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">saveROC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">PFA</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PD</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_iter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Betti</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.saveROC" title="Permalink to this definition">¶</a></dt>
+<dd><p>SaveROC</p>
+<p>Saves the PFA and PD array with the labels provided through parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>PFA</strong> (<em>array</em>) – numpy vector. The PFA array generated during ROC gen.</p></li>
+<li><p><strong>PD</strong> (<em>array</em>) – numpy vector. THe PD array generated during ROC gen.</p></li>
+<li><p><strong>nsize</strong> (<em>integer</em>) – Size of the Gaussian Random Fields grid.</p></li>
+<li><p><strong>num_iter</strong> (<em>integer</em>) – Number of iteration for which ROC gen is run.</p></li>
+<li><p><strong>H0</strong> (<em>float</em>) – Power spectral index of Null Hypothesis.</p></li>
+<li><p><strong>H1</strong> (<em>float</em>) – Power spectral index of Test Hypothesis.</p></li>
+<li><p><strong>type1</strong> (<em>string</em>) – type1 of the ROC curve generated takes value ‘likelihood’,’betti’,’genus</p></li>
+<li><p><strong>Betti</strong> (<em>integer</em>) – Dimension of Betti curve not needed when type = likelihood</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 
 
            </div>

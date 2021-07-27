@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.7.9)  19 JUL 2021 21:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.7.9)  27 JUL 2021 22:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -790,20 +790,20 @@ LaTeX Font Info:    Font shape `T1/txtt/m/it' in size <10> not available
 
 ]
 Chapter 2.
-[3] [4]
-Chapter 3.
-[5
+[3] [4] [5] [6
 
-] [6
+]
+Chapter 3.
+[7] [8
 
 ]
 Chapter 4.
-[7] [8
+[9] [10
 
-] [9
+] [11
 
 
-] (./gaussbetti.ind [10
+] (./gaussbetti.ind [12
 
 
 ]
@@ -817,25 +817,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--24
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 53--55
+Underfull \hbox (badness 10000) in paragraph at lines 51--53
 []\T1/txtt/m/n/10 PowerSpectrum_grid_generator() \T1/qtm/m/n/10 (\T1/qtm/m/it/1
 0 gauss-
  []
 
-[11
+[13
 
 ]) (./gaussbetti.aux)
 Package rerunfilecheck Info: File `gaussbetti.out' has not changed.
-(rerunfilecheck)             Checksum: 5A8C1C384E706D7661B2D74655483414;654.
+(rerunfilecheck)             Checksum: 7184CA1B81CF0E418CA8C0DC5CBA3DAA;654.
  ) 
 Here is how much of TeX's memory you used:
- 13489 strings out of 478994
- 193933 string characters out of 5864752
- 538596 words of memory out of 5000000
- 30585 multiletter control sequences out of 15000+600000
+ 13495 strings out of 478994
+ 194055 string characters out of 5864752
+ 541664 words of memory out of 5000000
+ 30587 multiletter control sequences out of 15000+600000
  447654 words of font info for 60 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
- 83i,11n,88p,516b,545s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 83i,11n,88p,630b,598s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc}{/usr/share/texmf-di
 st/fonts/enc/dvips/tex-gyre/q-ts1.enc}</usr/share/texmf-dist/fonts/type1/public
 /tex-gyre/qhvb.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qhvbi.pfb
@@ -845,10 +845,10 @@ blic/tex-gyre/qtmr.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmri
 .pfb></usr/share/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></usr/share/t
 exmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texmf-dist/fonts/typ
 e1/public/txfonts/t1xtt.pfb>
-Output written on gaussbetti.pdf (15 pages, 170882 bytes).
+Output written on gaussbetti.pdf (17 pages, 172914 bytes).
 PDF statistics:
- 209 PDF objects out of 1000 (max. 8388607)
- 176 compressed objects within 2 object streams
- 43 named destinations out of 1000 (max. 500000)
+ 221 PDF objects out of 1000 (max. 8388607)
+ 186 compressed objects within 2 object streams
+ 47 named destinations out of 1000 (max. 500000)
  69 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -60,7 +60,7 @@
 
 
 \title{GaussBetti}
-\date{Jul 19, 2021}
+\date{Jul 27, 2021}
 \release{1.0.0}
 \author{Siddharth}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -172,7 +172,102 @@ Numpy array
 
 
 \chapter{Utilities}
-\label{\detokenize{utilities:utilities}}\label{\detokenize{utilities:id1}}\label{\detokenize{utilities::doc}}\phantomsection\label{\detokenize{utilities:module-utilities}}\index{module@\spxentry{module}!utilities@\spxentry{utilities}}\index{utilities@\spxentry{utilities}!module@\spxentry{module}}\index{KLdivergence() (in module utilities)@\spxentry{KLdivergence()}\spxextra{in module utilities}}
+\label{\detokenize{utilities:utilities}}\label{\detokenize{utilities:id1}}\label{\detokenize{utilities::doc}}\phantomsection\label{\detokenize{utilities:module-utilities}}\index{module@\spxentry{module}!utilities@\spxentry{utilities}}\index{utilities@\spxentry{utilities}!module@\spxentry{module}}\index{Generate\_BettiGenus\_array() (in module utilities)@\spxentry{Generate\_BettiGenus\_array()}\spxextra{in module utilities}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{utilities:utilities.Generate_BettiGenus_array}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{utilities.}}\sphinxbfcode{\sphinxupquote{Generate\_BettiGenus\_array}}}{\emph{\DUrole{n}{Nsize}}, \emph{\DUrole{n}{power\_index\_null}}, \emph{\DUrole{n}{power\_index\_test}}, \emph{\DUrole{n}{average}}, \emph{\DUrole{n}{iteration}}, \emph{\DUrole{n}{filtration\_threshold\_start}}, \emph{\DUrole{n}{filtration\_threshold\_stop}}, \emph{\DUrole{n}{type1}\DUrole{o}{=}\DUrole{default_value}{\textquotesingle{}lower\textquotesingle{}}}}{}
+\sphinxAtStartPar
+Generate\_Likelihood\_Array
+
+\sphinxAtStartPar
+Generates the Betti and Genus curves for specified parameters.
+\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{Nsize}} (\sphinxstyleliteralemphasis{\sphinxupquote{integer}}) \textendash{} grid size of the Gaussian Random Field
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{power\_index\_null}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \textendash{} Power spectral index of Null Hypothesis
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{power\_index\_test}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \textendash{} Power spectral index of Test Hypothesis
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{average}} (\sphinxstyleliteralemphasis{\sphinxupquote{integer}}) \textendash{} No. of times the betti curves need to be averaged
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{iteration}} (\sphinxstyleliteralemphasis{\sphinxupquote{integer}}) \textendash{} Size of the arrays generated
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{filtration\_threshold\_start}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \textendash{} Start value for generating filtraion from dionysus
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{filtration\_threshold\_stop}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \textendash{} Stop value for generation filtration from dionysus
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{type}} \textendash{} Type of filtration accepted values are ‘lower’ ‘upper
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+\sphinxAtStartPar
+array of Betti and Genus curves
+
+\item[{Return type}] \leavevmode
+\sphinxAtStartPar
+numpy array
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{Generate\_Likelihood\_Array() (in module utilities)@\spxentry{Generate\_Likelihood\_Array()}\spxextra{in module utilities}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{utilities:utilities.Generate_Likelihood_Array}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{utilities.}}\sphinxbfcode{\sphinxupquote{Generate\_Likelihood\_Array}}}{\emph{\DUrole{n}{Nsize}}, \emph{\DUrole{n}{power\_index\_null}}, \emph{\DUrole{n}{power\_index\_test}}, \emph{\DUrole{n}{iteration}}}{}
+\sphinxAtStartPar
+Generates the array of likelihood ratios for making ROC curves.
+\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{Nsize}} (\sphinxstyleliteralemphasis{\sphinxupquote{integer}}) \textendash{} grid size of the Gaussian Random Field
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{power\_index\_null}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \textendash{} Power spectral index of Null Hypothesis
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{power\_index\_test}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \textendash{} Power spectral index of Test Hypothesis
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{iteration}} (\sphinxstyleliteralemphasis{\sphinxupquote{integer}}) \textendash{} Size of the likelihood ratio array generated
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+\sphinxAtStartPar
+array of likelihood ratios
+
+\item[{Return type}] \leavevmode
+\sphinxAtStartPar
+numpy array
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{KLdivergence() (in module utilities)@\spxentry{KLdivergence()}\spxextra{in module utilities}}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{utilities:utilities.KLdivergence}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{utilities.}}\sphinxbfcode{\sphinxupquote{KLdivergence}}}{\emph{\DUrole{n}{x}}, \emph{\DUrole{n}{y1}}, \emph{\DUrole{n}{y2}}}{}
@@ -206,98 +301,10 @@ float
 
 \end{fulllineitems}
 
-\index{SaveROC() (in module utilities)@\spxentry{SaveROC()}\spxextra{in module utilities}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{utilities:utilities.SaveROC}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{utilities.}}\sphinxbfcode{\sphinxupquote{SaveROC}}}{\emph{\DUrole{n}{PFA}}, \emph{\DUrole{n}{PD}}, \emph{\DUrole{n}{nsize}}, \emph{\DUrole{n}{num\_iter}}, \emph{\DUrole{n}{H0}}, \emph{\DUrole{n}{H1}}, \emph{\DUrole{n}{Betti}}, \emph{\DUrole{n}{type}}}{}
-\sphinxAtStartPar
-Saves the PFA and PD array with the labels provided through parameters.
-\begin{quote}\begin{description}
-\item[{Parameters}] \leavevmode\begin{itemize}
-\item {} 
-\sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{PFA}} (\sphinxstyleliteralemphasis{\sphinxupquote{array}}) \textendash{} numpy vector. The PFA array generated during ROC gen.
-
-\item {} 
-\sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{PD}} (\sphinxstyleliteralemphasis{\sphinxupquote{array}}) \textendash{} numpy vector. THe PD array generated during ROC gen.
-
-\item {} 
-\sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{nsize}} (\sphinxstyleliteralemphasis{\sphinxupquote{integer}}) \textendash{} Size of the Gaussian Random Fields grid.
-
-\item {} 
-\sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{num\_iter}} (\sphinxstyleliteralemphasis{\sphinxupquote{integer}}) \textendash{} Number of iteration for which ROC gen is run.
-
-\item {} 
-\sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{H0}} (\sphinxstyleliteralemphasis{\sphinxupquote{integer}}) \textendash{} Power spectral index of Null Hypothesis.
-
-\item {} 
-\sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{H1}} (\sphinxstyleliteralemphasis{\sphinxupquote{integer}}) \textendash{} Power spectral index of Test Hypothesis.
-
-\item {} 
-\sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{type}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} type of the ROC curve generated
-
-\end{itemize}
-
-\item[{Returns}] \leavevmode
-\sphinxAtStartPar
-None
-
-\item[{Return type}] \leavevmode
-\sphinxAtStartPar
-None
-
-\end{description}\end{quote}
-
-\end{fulllineitems}
-
-\index{likelihoodratio() (in module utilities)@\spxentry{likelihoodratio()}\spxextra{in module utilities}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{utilities:utilities.likelihoodratio}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{utilities.}}\sphinxbfcode{\sphinxupquote{likelihoodratio}}}{\emph{\DUrole{n}{correlation0}}, \emph{\DUrole{n}{correlation1}}, \emph{\DUrole{n}{X0}}, \emph{\DUrole{n}{X1}}}{}
-\sphinxAtStartPar
-Calculates the likelihood ratio for the False alarm and detection.
-\begin{quote}\begin{description}
-\item[{Parameters}] \leavevmode\begin{itemize}
-\item {} 
-\sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{correlation0}} (\sphinxstyleliteralemphasis{\sphinxupquote{array}}) \textendash{} Correlation matrix for the Gaussian Random Field for null hypothesis.
-
-\item {} 
-\sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{correlation1}} (\sphinxstyleliteralemphasis{\sphinxupquote{array}}) \textendash{} Correlation matrix for the Gaussian Random Field for test hypothesis.
-
-\item {} 
-\sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{X0}} (\sphinxstyleliteralemphasis{\sphinxupquote{array}}) \textendash{} Gausian Random Field of null hypothesis as a 1\sphinxhyphen{}D array
-
-\item {} 
-\sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{X1}} (\sphinxstyleliteralemphasis{\sphinxupquote{array}}) \textendash{} Gaussian Random Field of test hypothesis as a 1\sphinxhyphen{}D array
-
-\end{itemize}
-
-\item[{Returns}] \leavevmode
-\sphinxAtStartPar
-likelihood ratio
-
-\item[{Return type}] \leavevmode
-\sphinxAtStartPar
-float
-
-\end{description}\end{quote}
-
-\end{fulllineitems}
-
 \index{plotROC() (in module utilities)@\spxentry{plotROC()}\spxextra{in module utilities}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{utilities:utilities.plotROC}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{utilities.}}\sphinxbfcode{\sphinxupquote{plotROC}}}{\emph{\DUrole{n}{PFA}}, \emph{\DUrole{n}{PD}}, \emph{\DUrole{n}{nsize}}, \emph{\DUrole{n}{num\_iter}}, \emph{\DUrole{n}{H0}}, \emph{\DUrole{n}{H1}}, \emph{\DUrole{n}{Betti}}, \emph{\DUrole{n}{type}}}{}
+\phantomsection\label{\detokenize{utilities:utilities.plotROC}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{utilities.}}\sphinxbfcode{\sphinxupquote{plotROC}}}{\emph{\DUrole{n}{PFA}}, \emph{\DUrole{n}{PD}}, \emph{\DUrole{n}{nsize}}, \emph{\DUrole{n}{num\_iter}}, \emph{\DUrole{n}{H0}}, \emph{\DUrole{n}{H1}}, \emph{\DUrole{n}{type1}}, \emph{\DUrole{n}{Betti}\DUrole{o}{=}\DUrole{default_value}{\textquotesingle{}default\textquotesingle{}}}}{}
 \sphinxAtStartPar
 Plots the PFA and PD ROC graph with the labels provided through parameters.
 \begin{quote}\begin{description}
@@ -320,6 +327,52 @@ Plots the PFA and PD ROC graph with the labels provided through parameters.
 
 \item {} 
 \sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{H0}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \textendash{} Power spectral index of Null Hypothesis.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{H1}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \textendash{} Power spectral index of Test Hypothesis.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{type1}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} type1 of the ROC curve generated takes value ‘likelihood’,’betti’,’genus
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{Betti}} (\sphinxstyleliteralemphasis{\sphinxupquote{integer}}) \textendash{} Dimension of Betti curve not needed when type = likelihood
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+\sphinxAtStartPar
+None
+
+\item[{Return type}] \leavevmode
+\sphinxAtStartPar
+None
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{readROC() (in module utilities)@\spxentry{readROC()}\spxextra{in module utilities}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{utilities:utilities.readROC}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{utilities.}}\sphinxbfcode{\sphinxupquote{readROC}}}{\emph{\DUrole{n}{nsize}}, \emph{\DUrole{n}{num\_iter}}, \emph{\DUrole{n}{H0}}, \emph{\DUrole{n}{H1}}, \emph{\DUrole{n}{type1}}, \emph{\DUrole{n}{Betti}\DUrole{o}{=}\DUrole{default_value}{\textquotesingle{}default\textquotesingle{}}}}{}
+\sphinxAtStartPar
+Reads the PFA and PD array from the files generated using saveROC.
+\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{nsize}} (\sphinxstyleliteralemphasis{\sphinxupquote{integer}}) \textendash{} Size of the Gaussian Random Fields grid.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{num\_iter}} (\sphinxstyleliteralemphasis{\sphinxupquote{integer}}) \textendash{} Number of iteration for which ROC gen is run.
+
+\item {} 
+\sphinxAtStartPar
 \sphinxstyleliteralstrong{\sphinxupquote{H0}} (\sphinxstyleliteralemphasis{\sphinxupquote{integer}}) \textendash{} Power spectral index of Null Hypothesis.
 
 \item {} 
@@ -328,7 +381,68 @@ Plots the PFA and PD ROC graph with the labels provided through parameters.
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{type}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} type of the ROC curve generated
+\sphinxstyleliteralstrong{\sphinxupquote{type1}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} type1 of the ROC curve generated takes value ‘likelihood’,’betti’,’genus
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{Betti}} (\sphinxstyleliteralemphasis{\sphinxupquote{integer}}) \textendash{} Dimension of Betti curve not needed when type = likelihood
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+\sphinxAtStartPar
+Returns PFA and PD arrays
+
+\item[{Return type}] \leavevmode
+\sphinxAtStartPar
+Numpy Array
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{saveROC() (in module utilities)@\spxentry{saveROC()}\spxextra{in module utilities}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{utilities:utilities.saveROC}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{utilities.}}\sphinxbfcode{\sphinxupquote{saveROC}}}{\emph{\DUrole{n}{PFA}}, \emph{\DUrole{n}{PD}}, \emph{\DUrole{n}{nsize}}, \emph{\DUrole{n}{num\_iter}}, \emph{\DUrole{n}{H0}}, \emph{\DUrole{n}{H1}}, \emph{\DUrole{n}{type1}}, \emph{\DUrole{n}{Betti}\DUrole{o}{=}\DUrole{default_value}{\textquotesingle{}default\textquotesingle{}}}}{}
+\sphinxAtStartPar
+SaveROC
+
+\sphinxAtStartPar
+Saves the PFA and PD array with the labels provided through parameters.
+\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{PFA}} (\sphinxstyleliteralemphasis{\sphinxupquote{array}}) \textendash{} numpy vector. The PFA array generated during ROC gen.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{PD}} (\sphinxstyleliteralemphasis{\sphinxupquote{array}}) \textendash{} numpy vector. THe PD array generated during ROC gen.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{nsize}} (\sphinxstyleliteralemphasis{\sphinxupquote{integer}}) \textendash{} Size of the Gaussian Random Fields grid.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{num\_iter}} (\sphinxstyleliteralemphasis{\sphinxupquote{integer}}) \textendash{} Number of iteration for which ROC gen is run.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{H0}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \textendash{} Power spectral index of Null Hypothesis.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{H1}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \textendash{} Power spectral index of Test Hypothesis.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{type1}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} type1 of the ROC curve generated takes value ‘likelihood’,’betti’,’genus
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{Betti}} (\sphinxstyleliteralemphasis{\sphinxupquote{integer}}) \textendash{} Dimension of Betti curve not needed when type = likelihood
 
 \end{itemize}
 
