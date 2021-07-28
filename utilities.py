@@ -137,7 +137,7 @@ def Generate_BettiGenus_array(Nsize,power_index_null,power_index_test,average,it
         Betti_array0.append(BettiAVG0)
         Betti_array1.append(BettiAVG1)
     print('Finished generating Betti and Genus arrays')
-    return [np.array(Betti_array1),np.array(Betti_array0),np.array(Genus_array0),np.array(Genus_array1)]
+    return [np.array(Betti_array0),np.array(Betti_array1),np.array(Genus_array0),np.array(Genus_array1)]
 
 def plotROC(PFA,PD,nsize,num_iter,H0,H1,type1,Betti='default'):
     """plotROC

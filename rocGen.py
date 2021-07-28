@@ -27,17 +27,18 @@ def LikelihoodROC(likelihoodratio0,likelihoodratio1,threshold_step):
         PFA = 0
         PD = 0
         for i in range(iteration):
-            if likelihoodratio1[i] > lambd:
-                PD += 1
             if likelihoodratio0[i] > lambd:
                 PFA += 1
+            if likelihoodratio1[i] > lambd:
+                PD += 1
+
         PFA = PFA/iteration
         PD = PD/iteration
         PFA_array.append(PFA)
         PD_array.append(PD)
 
     print('Finished generating likelihood ROC curves')
-    return [PFA_array,PD_array]
+    return np.array([PFA_array,PD_array])
 
 
 def BettiROC(Betti_array0,Betti_array1,threshold_step):
@@ -53,11 +54,11 @@ def BettiROC(Betti_array0,Betti_array1,threshold_step):
     Returns:
         Array: PFA and PD values
     """
-    peak0 = max(Betti_array0[0])
-    peak1 = max(Betti_array1[0])
+    peak0 = np.amax(Betti_array0)
+    peak1 = np.amax(Betti_array1)
     index = np.argmax(Betti_array1[0])
-    threshold_start = np.min([peak0,peak1]) - 3*threshold_step
-    threshold_stop = np.max([peak0,peak1]) + 3*threshold_step
+    threshold_start = np.amin([peak0,peak1]) - 20
+    threshold_stop = np.amax([peak0,peak1]) + 20
     thresholds = np.arange(threshold_start,threshold_stop,threshold_step)
     iteration = Betti_array1.shape[0]
     PFA_array = []
@@ -91,11 +92,11 @@ def GenusROC(Genus_array0,Genus_array1,threshold_step):
     Returns:
         Array: PFA and PD values
     """
-    peak0 = np.amax(Genus_array0[0])
-    peak1 = np.amax(Genus_array1[0])
+    peak0 = np.amax(Genus_array0)
+    peak1 = np.amax(Genus_array1)
     index = np.argmax(Genus_array1[0])
-    threshold_start = np.amin([peak0,peak1]) - 3*threshold_step
-    threshold_stop = np.amax([peak0,peak1]) + 3*threshold_step
+    threshold_start = np.amin([peak0,peak1]) - 20
+    threshold_stop = np.amax([peak0,peak1]) + 20
     thresholds = np.arange(threshold_start,threshold_stop,threshold_step)
     iteration = Genus_array1.shape[0]
     PFA_array = []
