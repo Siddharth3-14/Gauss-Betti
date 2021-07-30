@@ -73,8 +73,7 @@ def Generate_Likelihood_Array(Nsize,power_index_null,power_index_test,iteration)
 
         type0 = type2_n0 + np.log(det_corr1) - type2_n1 - np.log(det_corr0)
         type1 = type1_n1 + np.log(det_corr0) - type1_n0 - np.log(det_corr1)
-
-        
+       
         return type0,type1
 
 
@@ -167,11 +166,12 @@ def plotROC(PFA,PD,nsize,num_iter,H0,H1,type1,Betti='default'):
         title = '{type1} ROC Betti{Betti} {linebreak} Grid size = {nsize} iteration = {num_iter} {linebreak} power spectral index of null hypothesis:{H0}, test hypothesis:{H1} '.format(type1 = type1,Betti=str(Betti),nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1),linebreak='\n' )
         plt.title(title)
         # plt.show()
-        print('Finished saving the plot')
+        print('Finished saving the {type1} plot'.format(type1=type1))
         plt.savefig('Figures/{type1}B{Betti}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.png'.format(type1=type1,Betti=str(Betti),nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1)))
 
 
     else:
+        plt.figure()
         plt.plot(PFA,PD)
         plt.xlim(-.1,1.1)
         plt.ylim(-.1,1.1)
@@ -181,7 +181,7 @@ def plotROC(PFA,PD,nsize,num_iter,H0,H1,type1,Betti='default'):
         plt.title(title)
         # plt.show()
         plt.savefig('Figures/{type1}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.png'.format(type1=type1,nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1)))
-        print('Finished saving the plot')
+        print('Finished saving the {type1} plot'.format(type1=type1))
 
 
 def saveROC(PFA,PD,nsize,num_iter,H0,H1,type1,Betti='default'):
@@ -208,7 +208,7 @@ def saveROC(PFA,PD,nsize,num_iter,H0,H1,type1,Betti='default'):
         for i in range(length):
             file.write(str(PFA[i]) + '\t' + str(PD[i])+'\n')
         file.close()
-        print('Finished saving the PFA and PD arrays')
+        print('Finished saving the {type1} PFA and PD arrays'.format(type1=type1))
 
     else:
         file = open('Files/{type1}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.txt'.format(type1=type1,nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1)),'w+')
@@ -216,7 +216,7 @@ def saveROC(PFA,PD,nsize,num_iter,H0,H1,type1,Betti='default'):
         for i in range(length):
             file.write(str(PFA[i]) + '\t' + str(PD[i])+'\n')
         file.close()
-        print('Finished saving the PFA and PD arrays')
+        print('Finished saving the {type1} PFA and PD arrays'.format(type1=type1))
 
 
 def readROC(nsize,num_iter,H0,H1,type1,Betti='default'):

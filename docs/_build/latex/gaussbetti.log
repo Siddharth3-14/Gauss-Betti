@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.7.9)  27 JUL 2021 23:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.7.9)  28 JUL 2021 17:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -849,7 +849,7 @@ blic/tex-gyre/qtmr.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmri
 .pfb></usr/share/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></usr/share/t
 exmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texmf-dist/fonts/typ
 e1/public/txfonts/t1xtt.pfb>
-Output written on gaussbetti.pdf (19 pages, 176644 bytes).
+Output written on gaussbetti.pdf (19 pages, 176641 bytes).
 PDF statistics:
  247 PDF objects out of 1000 (max. 8388607)
  209 compressed objects within 3 object streams
