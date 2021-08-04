@@ -64,7 +64,6 @@ def Generate_Likelihood_Array(Nsize,power_index_null,power_index_test,iteration)
         trans_X0 = np.transpose(X0)
         trans_X1 = np.transpose(X1)
 
-
         type_test_n0 = -0.5*np.dot(trans_X1, np.dot(inv_corr0, X1))
         type_test_n1 = -0.5*np.dot(trans_X1, np.dot(inv_corr1, X1))
 

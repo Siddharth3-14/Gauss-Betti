@@ -49,7 +49,6 @@ def testCorrelationMatrix(Gauss_class_object):
     minc = np.amin(corr_s)
     average = (maxc+minc)/2
     corr_tilda = corr_s/average
-
     det_corr_tilda = np.log(np.longfloat(np.sqrt(abs(np.linalg.det(corr_tilda))))) + 0.5*nsize*nsize*np.log(average)
     print('Log Determinant of correlation matrix :',det_corr_tilda)
     
@@ -58,3 +57,26 @@ def testBettiGenus(Betti,Genus,nsize,power):
     plt.plot(Genus)
     plt.savefig('Figures/test/BettiGenus_Size{nsize}_Power{power}.png'.format(nize=nsize,power=power))
 
+# a,b = utilities.readROC(20,500,0.5,1,'likelihood')
+# c,d = utilities.readROC(20,500,0.9,1,'likelihood')
+# g,h = utilities.readROC(20,500,0,1,'likelihood')
+# k,l = utilities.readROC(20,500,-1,1,'likelihood')
+# m,n = utilities.readROC(20,500,-3,1,'likelihood')
+# p,q = utilities.readROC(20,500,3,1,'likelihood')
+
+
+a,b = utilities.readROC(20,500,-2.5,-2,'likelihood')
+c,d = utilities.readROC(20,500,-3.5,-2,'likelihood')
+g,h = utilities.readROC(20,500,0.9,-2,'likelihood')
+k,l = utilities.readROC(20,500,0.5,-2,'likelihood')
+m,n = utilities.readROC(20,500,-3,-2,'likelihood')
+p,q = utilities.readROC(20,500,3,-2,'likelihood')
+
+plt.plot(c,d,label = '-3.5,-2')
+plt.plot(m,n,label ='-3,-2')
+plt.plot(a,b,label = '-2.5,-2')
+plt.plot(k,l,label ='0.5,-2')
+plt.plot(g,h,label = '0.9,-2')
+plt.plot(p,q,label ='3,-2')
+plt.legend()
+plt.show()
