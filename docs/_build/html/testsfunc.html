@@ -1,0 +1,354 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>testsFunc &mdash; GaussBetti 2.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GaussBetti
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="gaussClass.html">gaussClass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topologicalFunc.html">topologicalFunc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GaussBetti</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>testsFunc</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/testsfunc.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="testsfunc">
+<span id="id1"></span><h1>testsFunc<a class="headerlink" href="#testsfunc" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-testsFunc"></span><dl class="py function">
+<dt class="sig sig-object py" id="testsFunc.MultitestAllROC">
+<span class="sig-prename descclassname"><span class="pre">testsFunc.</span></span><span class="sig-name descname"><span class="pre">MultitestAllROC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Nsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power_null</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">average</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_iter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testsFunc.MultitestAllROC" title="Permalink to this definition">¶</a></dt>
+<dd><p>testBettiGenusROC</p>
+<p>Plots all ROC curve for multiple values of null and test power spectral index and saves them in a folder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nsize</strong> (<em>integer</em>) – Size of the Gaussian Random Fields grid.</p></li>
+<li><p><strong>power_null</strong> (<em>array</em>) – Power spectral indices of Null Hypothesis.</p></li>
+<li><p><strong>power_test</strong> (<em>array</em>) – Power spectral indices of Test Hypothesis.</p></li>
+<li><p><strong>average</strong> (<em>integer</em>) – Number of times topological curves are averaged</p></li>
+<li><p><strong>num_iter</strong> (<em>integer</em>) – Number of iteration for which ROC gen is run.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="testsFunc.testAllROC">
+<span class="sig-prename descclassname"><span class="pre">testsFunc.</span></span><span class="sig-name descname"><span class="pre">testAllROC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Nsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power_null</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">average</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_iter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testsFunc.testAllROC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots all ROC curve for single value of null and test power spectral index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nsize</strong> (<em>integer</em>) – Size of the Gaussian Random Fields grid.</p></li>
+<li><p><strong>power_null</strong> (<em>float</em>) – Power spectral index of Null Hypothesis.</p></li>
+<li><p><strong>power_test</strong> (<em>float</em>) – Power spectral index of Test Hypothesis.</p></li>
+<li><p><strong>average</strong> (<em>integer</em>) – Number of times topological curves are averaged</p></li>
+<li><p><strong>num_iter</strong> (<em>integer</em>) – Number of iteration for which ROC gen is run.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="testsFunc.testBettiGenus">
+<span class="sig-prename descclassname"><span class="pre">testsFunc.</span></span><span class="sig-name descname"><span class="pre">testBettiGenus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Betti</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Genus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testsFunc.testBettiGenus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the Betti and Genus curves.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Betti</strong> (<em>array</em>) – Betti array</p></li>
+<li><p><strong>Genus</strong> (<em>array</em>) – Genus array</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="testsFunc.testBettiGenusROC">
+<span class="sig-prename descclassname"><span class="pre">testsFunc.</span></span><span class="sig-name descname"><span class="pre">testBettiGenusROC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Nsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power_null</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">average</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_iter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testsFunc.testBettiGenusROC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the Betti and Genus ROC curve for multiple values of null and test power spectral index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nsize</strong> (<em>integer</em>) – Size of the Gaussian Random Fields grid.</p></li>
+<li><p><strong>power_null</strong> (<em>array</em>) – Power spectral indices of Null Hypothesis.</p></li>
+<li><p><strong>power_test</strong> (<em>array</em>) – Power spectral indices of Test Hypothesis.</p></li>
+<li><p><strong>average</strong> (<em>integer</em>) – Number of times topological curves are averaged</p></li>
+<li><p><strong>num_iter</strong> (<em>integer</em>) – Number of iteration for which ROC gen is run.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="testsFunc.testCorrelationMatrix">
+<span class="sig-prename descclassname"><span class="pre">testsFunc.</span></span><span class="sig-name descname"><span class="pre">testCorrelationMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Gauss_class_object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testsFunc.testCorrelationMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints info about the original and modified correlation matrix of for an instance of GaussianRandomField.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>Gauss_class_object</strong> (<em>object</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="testsFunc.testGaussianRandomField">
+<span class="sig-prename descclassname"><span class="pre">testsFunc.</span></span><span class="sig-name descname"><span class="pre">testGaussianRandomField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Gauss_class_object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testsFunc.testGaussianRandomField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the Gaussian Random field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>Gauss_class_object</strong> (<em>object</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="testsFunc.testLikelihoodROC">
+<span class="sig-prename descclassname"><span class="pre">testsFunc.</span></span><span class="sig-name descname"><span class="pre">testLikelihoodROC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power_null</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_iter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testsFunc.testLikelihoodROC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the likelihood ROC curve for multiple values of null and test power spectral index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nsize</strong> (<em>integer</em>) – Size of the Gaussian Random Fields grid.</p></li>
+<li><p><strong>power_null</strong> (<em>array</em>) – Power spectral indices of Null Hypothesis.</p></li>
+<li><p><strong>power_test</strong> (<em>array</em>) – Power spectral indices of Test Hypothesis.</p></li>
+<li><p><strong>num_iter</strong> (<em>integer</em>) – Number of iteration for which ROC gen is run.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Siddharth.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

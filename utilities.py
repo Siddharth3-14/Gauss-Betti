@@ -100,62 +100,7 @@ def Generate_Likelihood_Array(Nsize,power_index_null,power_index_test,iteration)
     print('Finished generating the likelihood arrays')
     return np.array([likelihoodratio0,likelihoodratio1])
 
-# def Generate_Likelihood_Array(Nsize,power_index_null,power_index_test,iteration):
-#     """Generate_Likelihood_Array
-
-#     Generates the array of likelihood ratios for making ROC curves.
-    
-#     Args:
-#         Nsize (integer): grid size of the Gaussian Random Field 
-#         power_index_null (float): Power spectral index of Null Hypothesis
-#         power_index_test (float): Power spectral index of Test Hypothesis
-#         iteration (integer): Size of the likelihood ratio array generated 
- 
-               
-#     Returns:
-#        numpy array: array of likelihood ratios
-#     """
-#     Gaussian0 = GaussianRandomField(Nsize,power_index_null)
-#     Gaussian1 = GaussianRandomField(Nsize,power_index_test)
-
-#     corr0 = Gaussian0.corr_s
-#     corr1 = Gaussian1.corr_s
-
-#     inv_corr0 = np.linalg.inv(corr0)
-#     inv_corr1 = np.linalg.inv(corr1)
-    
-#     def likelihoodratio(X0,X1):
-#         trans_X0 = np.transpose(X0)
-#         trans_X1 = np.transpose(X1)
-#         det_corr0 = np.longfloat(np.sqrt(abs(np.linalg.det(corr0))))
-#         det_corr1 = np.longfloat(np.sqrt(abs(np.linalg.det(corr1))))
-
-#         type_test_n0 = -0.5*np.dot(trans_X1, np.dot(inv_corr0, X1))
-#         type_test_n1 = -0.5*np.dot(trans_X1, np.dot(inv_corr1, X1))
-
-#         type_null_n0 = -0.5*np.dot(trans_X0, np.dot(inv_corr0, X0))
-#         type_null_n1 = -0.5*np.dot(trans_X0, np.dot(inv_corr1, X0))
-
-
-#         type_null = type_null_n0 + np.log(det_corr1) - type_null_n1 - np.log(det_corr0)
-#         type_test = type_test_n1 + np.log(det_corr0) - type_test_n0 - np.log(det_corr1)
-       
-#         return type_null,type_test
-
-
-#     likelihoodratio0 = []
-#     likelihoodratio1 = []
-#     for _ in range(iteration):
-#         tempGaussian0 = Gaussian0.Gen_GRF(type = 'array')
-#         tempGaussian1 = Gaussian1.Gen_GRF(type = 'array')
-#         tempType_null,tempType_test = likelihoodratio(tempGaussian0,tempGaussian1)
-#         likelihoodratio0.append(tempType_null)
-#         likelihoodratio1.append(tempType_test)
-
-#     print('Finished generating the likelihood arrays')
-#     return np.array([likelihoodratio0,likelihoodratio1])
-
-def Generate_BettiGenus_array(Nsize,power_index_null,power_index_test,average,iteration,filtration_threshold_start,filtration_threshold_stop,type1='lower'):
+def Generate_BettiGenus_array(Nsize,power_index_null,power_index_test,average,iteration,filtration_threshold_start=-4,filtration_threshold_stop=4,type1='lower'):
     """Generate_Likelihood_Array
 
     Generates the Betti and Genus curves for specified parameters.
@@ -203,6 +148,7 @@ def Generate_BettiGenus_array(Nsize,power_index_null,power_index_test,average,it
         Betti_array1.append(BettiAVG1)
     print('Finished generating Betti and Genus arrays')
     return [np.array(Betti_array0),np.array(Betti_array1),np.array(Genus_array0),np.array(Genus_array1)]
+
 
 def plotROC(PFA,PD,nsize,num_iter,H0,H1,type1,Betti='default'):
     """plotROC
@@ -283,6 +229,8 @@ def saveROC(PFA,PD,nsize,num_iter,H0,H1,type1,Betti='default'):
             file.write(str(PFA[i]) + '\t' + str(PD[i])+'\n')
         file.close()
         print('Finished saving the {type1} PFA and PD arrays'.format(type1=type1))
+
+
 
 
 def readROC(nsize,num_iter,H0,H1,type1,Betti='default'):

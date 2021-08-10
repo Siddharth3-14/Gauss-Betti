@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.7.9)  28 JUL 2021 17:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.7.9)  10 AUG 2021 15:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -776,38 +776,42 @@ File: t1txtt.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `T1/txtt/b/n' in size <10> not available
 (Font)              Font shape `T1/txtt/bx/n' tried instead on input line 84.
-LaTeX Font Info:    Trying to load font information for TS1+qtm on input line 8
-4.
+LaTeX Font Info:    Trying to load font information for TS1+qtm on input line 1
+80.
 
 (/usr/share/texmf-dist/tex/latex/tex-gyre/ts1qtm.fd
 File: ts1qtm.fd 2009/09/25 v1.2 font definition file for TS1/qtm
 )
 LaTeX Font Info:    Font shape `T1/txtt/m/it' in size <10> not available
-(Font)              Font shape `T1/txtt/m/sl' tried instead on input line 91.
+(Font)              Font shape `T1/txtt/m/sl' tried instead on input line 189.
  [1
 
 ] [2
 
 ]
 Chapter 2.
-[3] [4] [5] [6
-
-]
+[3] [4]
 Chapter 3.
-[7] [8
+[5
+
+] [6]
+Chapter 4.
+[7
+
+] [8
 
 ]
-Chapter 4.
-[9] [10]
 Chapter 5.
-[11
+[9] [10] [11] [12
 
-] [12
+]
+Chapter 6.
+[13] [14
 
-] [13
+] [15
 
 
-] (./gaussbetti.ind [14
+] (./gaussbetti.ind [16
 
 
 ]
@@ -821,25 +825,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--28
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 61--63
+Underfull \hbox (badness 10000) in paragraph at lines 63--65
 []\T1/txtt/m/n/10 PowerSpectrum_grid_generator() \T1/qtm/m/n/10 (\T1/qtm/m/it/1
 0 gauss-
  []
 
-[15
+[17
 
 ]) (./gaussbetti.aux)
 Package rerunfilecheck Info: File `gaussbetti.out' has not changed.
-(rerunfilecheck)             Checksum: 44B03D97BCCD0DCFC79E7C3612D55996;727.
+(rerunfilecheck)             Checksum: 8D6E13B4A6C7E71A15F18D1C85319597;815.
  ) 
 Here is how much of TeX's memory you used:
- 13510 strings out of 478994
- 194272 string characters out of 5864752
- 541876 words of memory out of 5000000
- 30595 multiletter control sequences out of 15000+600000
+ 13533 strings out of 478994
+ 194745 string characters out of 5864752
+ 542247 words of memory out of 5000000
+ 30607 multiletter control sequences out of 15000+600000
  447654 words of font info for 60 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
- 83i,11n,88p,630b,598s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 83i,11n,88p,722b,598s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc}{/usr/share/texmf-di
 st/fonts/enc/dvips/tex-gyre/q-ts1.enc}</usr/share/texmf-dist/fonts/type1/public
 /tex-gyre/qhvb.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qhvbi.pfb
@@ -849,10 +853,10 @@ blic/tex-gyre/qtmr.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmri
 .pfb></usr/share/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></usr/share/t
 exmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texmf-dist/fonts/typ
 e1/public/txfonts/t1xtt.pfb>
-Output written on gaussbetti.pdf (19 pages, 176641 bytes).
+Output written on gaussbetti.pdf (21 pages, 181567 bytes).
 PDF statistics:
- 247 PDF objects out of 1000 (max. 8388607)
- 209 compressed objects within 3 object streams
- 54 named destinations out of 1000 (max. 500000)
- 77 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 280 PDF objects out of 1000 (max. 8388607)
+ 240 compressed objects within 3 object streams
+ 65 named destinations out of 1000 (max. 500000)
+ 85 words of extra memory for PDF output out of 10000 (max. 10000000)
 

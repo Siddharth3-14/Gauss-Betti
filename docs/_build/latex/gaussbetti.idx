@@ -1,31 +1,40 @@
-\indexentry{module@\spxentry{module}!topologicalFunc@\spxentry{topologicalFunc}|hyperpage}{1}
-\indexentry{topologicalFunc@\spxentry{topologicalFunc}!module@\spxentry{module}|hyperpage}{1}
-\indexentry{GaussianFiltration() (in module topologicalFunc)@\spxentry{GaussianFiltration()}\spxextra{in module topologicalFunc}|hyperpage}{1}
-\indexentry{GenerateBettiP() (in module topologicalFunc)@\spxentry{GenerateBettiP()}\spxextra{in module topologicalFunc}|hyperpage}{1}
-\indexentry{GenerateGenus() (in module topologicalFunc)@\spxentry{GenerateGenus()}\spxextra{in module topologicalFunc}|hyperpage}{1}
-\indexentry{module@\spxentry{module}!utilities@\spxentry{utilities}|hyperpage}{3}
-\indexentry{utilities@\spxentry{utilities}!module@\spxentry{module}|hyperpage}{3}
-\indexentry{Generate\_BettiGenus\_array() (in module utilities)@\spxentry{Generate\_BettiGenus\_array()}\spxextra{in module utilities}|hyperpage}{3}
-\indexentry{Generate\_Likelihood\_Array() (in module utilities)@\spxentry{Generate\_Likelihood\_Array()}\spxextra{in module utilities}|hyperpage}{3}
-\indexentry{KLdivergence() (in module utilities)@\spxentry{KLdivergence()}\spxextra{in module utilities}|hyperpage}{3}
-\indexentry{plotROC() (in module utilities)@\spxentry{plotROC()}\spxextra{in module utilities}|hyperpage}{4}
-\indexentry{readROC() (in module utilities)@\spxentry{readROC()}\spxextra{in module utilities}|hyperpage}{4}
-\indexentry{saveROC() (in module utilities)@\spxentry{saveROC()}\spxextra{in module utilities}|hyperpage}{4}
-\indexentry{module@\spxentry{module}!gaussClass@\spxentry{gaussClass}|hyperpage}{7}
-\indexentry{gaussClass@\spxentry{gaussClass}!module@\spxentry{module}|hyperpage}{7}
-\indexentry{GaussianRandomField (class in gaussClass)@\spxentry{GaussianRandomField}\spxextra{class in gaussClass}|hyperpage}{7}
-\indexentry{Nzise (gaussClass.GaussianRandomField attribute)@\spxentry{Nzise}\spxextra{gaussClass.GaussianRandomField attribute}|hyperpage}{7}
-\indexentry{n (gaussClass.GaussianRandomField attribute)@\spxentry{n}\spxextra{gaussClass.GaussianRandomField attribute}|hyperpage}{7}
-\indexentry{k\_ind (gaussClass.GaussianRandomField attribute)@\spxentry{k\_ind}\spxextra{gaussClass.GaussianRandomField attribute}|hyperpage}{7}
-\indexentry{PowerSpectrum (gaussClass.GaussianRandomField attribute)@\spxentry{PowerSpectrum}\spxextra{gaussClass.GaussianRandomField attribute}|hyperpage}{7}
-\indexentry{corr\_s (gaussClass.GaussianRandomField attribute)@\spxentry{corr\_s}\spxextra{gaussClass.GaussianRandomField attribute}|hyperpage}{7}
-\indexentry{corr\_f (gaussClass.GaussianRandomField attribute)@\spxentry{corr\_f}\spxextra{gaussClass.GaussianRandomField attribute}|hyperpage}{7}
-\indexentry{Gen\_GRF() (gaussClass.GaussianRandomField method)@\spxentry{Gen\_GRF()}\spxextra{gaussClass.GaussianRandomField method}|hyperpage}{7}
-\indexentry{PowerSpectrum\_grid\_generator() (gaussClass.GaussianRandomField method)@\spxentry{PowerSpectrum\_grid\_generator()}\spxextra{gaussClass.GaussianRandomField method}|hyperpage}{7}
-\indexentry{fourier\_space\_ind() (gaussClass.GaussianRandomField method)@\spxentry{fourier\_space\_ind()}\spxextra{gaussClass.GaussianRandomField method}|hyperpage}{7}
-\indexentry{gen\_correlation() (gaussClass.GaussianRandomField method)@\spxentry{gen\_correlation()}\spxextra{gaussClass.GaussianRandomField method}|hyperpage}{7}
-\indexentry{module@\spxentry{module}!rocGen@\spxentry{rocGen}|hyperpage}{9}
-\indexentry{rocGen@\spxentry{rocGen}!module@\spxentry{module}|hyperpage}{9}
-\indexentry{BettiROC() (in module rocGen)@\spxentry{BettiROC()}\spxextra{in module rocGen}|hyperpage}{9}
-\indexentry{GenusROC() (in module rocGen)@\spxentry{GenusROC()}\spxextra{in module rocGen}|hyperpage}{9}
-\indexentry{LikelihoodROC() (in module rocGen)@\spxentry{LikelihoodROC()}\spxextra{in module rocGen}|hyperpage}{9}
+\indexentry{module@\spxentry{module}!gaussClass@\spxentry{gaussClass}|hyperpage}{1}
+\indexentry{gaussClass@\spxentry{gaussClass}!module@\spxentry{module}|hyperpage}{1}
+\indexentry{GaussianRandomField (class in gaussClass)@\spxentry{GaussianRandomField}\spxextra{class in gaussClass}|hyperpage}{1}
+\indexentry{Nzise (gaussClass.GaussianRandomField attribute)@\spxentry{Nzise}\spxextra{gaussClass.GaussianRandomField attribute}|hyperpage}{1}
+\indexentry{n (gaussClass.GaussianRandomField attribute)@\spxentry{n}\spxextra{gaussClass.GaussianRandomField attribute}|hyperpage}{1}
+\indexentry{k\_ind (gaussClass.GaussianRandomField attribute)@\spxentry{k\_ind}\spxextra{gaussClass.GaussianRandomField attribute}|hyperpage}{1}
+\indexentry{PowerSpectrum (gaussClass.GaussianRandomField attribute)@\spxentry{PowerSpectrum}\spxextra{gaussClass.GaussianRandomField attribute}|hyperpage}{1}
+\indexentry{corr\_s (gaussClass.GaussianRandomField attribute)@\spxentry{corr\_s}\spxextra{gaussClass.GaussianRandomField attribute}|hyperpage}{1}
+\indexentry{corr\_f (gaussClass.GaussianRandomField attribute)@\spxentry{corr\_f}\spxextra{gaussClass.GaussianRandomField attribute}|hyperpage}{1}
+\indexentry{Gen\_GRF() (gaussClass.GaussianRandomField method)@\spxentry{Gen\_GRF()}\spxextra{gaussClass.GaussianRandomField method}|hyperpage}{1}
+\indexentry{PowerSpectrum\_grid\_generator() (gaussClass.GaussianRandomField method)@\spxentry{PowerSpectrum\_grid\_generator()}\spxextra{gaussClass.GaussianRandomField method}|hyperpage}{1}
+\indexentry{fourier\_space\_ind() (gaussClass.GaussianRandomField method)@\spxentry{fourier\_space\_ind()}\spxextra{gaussClass.GaussianRandomField method}|hyperpage}{1}
+\indexentry{gen\_correlation() (gaussClass.GaussianRandomField method)@\spxentry{gen\_correlation()}\spxextra{gaussClass.GaussianRandomField method}|hyperpage}{1}
+\indexentry{module@\spxentry{module}!rocGen@\spxentry{rocGen}|hyperpage}{3}
+\indexentry{rocGen@\spxentry{rocGen}!module@\spxentry{module}|hyperpage}{3}
+\indexentry{BettiROC() (in module rocGen)@\spxentry{BettiROC()}\spxextra{in module rocGen}|hyperpage}{3}
+\indexentry{GenusROC() (in module rocGen)@\spxentry{GenusROC()}\spxextra{in module rocGen}|hyperpage}{3}
+\indexentry{LikelihoodROC() (in module rocGen)@\spxentry{LikelihoodROC()}\spxextra{in module rocGen}|hyperpage}{3}
+\indexentry{module@\spxentry{module}!testsFunc@\spxentry{testsFunc}|hyperpage}{5}
+\indexentry{testsFunc@\spxentry{testsFunc}!module@\spxentry{module}|hyperpage}{5}
+\indexentry{MultitestAllROC() (in module testsFunc)@\spxentry{MultitestAllROC()}\spxextra{in module testsFunc}|hyperpage}{5}
+\indexentry{testAllROC() (in module testsFunc)@\spxentry{testAllROC()}\spxextra{in module testsFunc}|hyperpage}{5}
+\indexentry{testBettiGenus() (in module testsFunc)@\spxentry{testBettiGenus()}\spxextra{in module testsFunc}|hyperpage}{5}
+\indexentry{testBettiGenusROC() (in module testsFunc)@\spxentry{testBettiGenusROC()}\spxextra{in module testsFunc}|hyperpage}{5}
+\indexentry{testCorrelationMatrix() (in module testsFunc)@\spxentry{testCorrelationMatrix()}\spxextra{in module testsFunc}|hyperpage}{6}
+\indexentry{testGaussianRandomField() (in module testsFunc)@\spxentry{testGaussianRandomField()}\spxextra{in module testsFunc}|hyperpage}{6}
+\indexentry{testLikelihoodROC() (in module testsFunc)@\spxentry{testLikelihoodROC()}\spxextra{in module testsFunc}|hyperpage}{6}
+\indexentry{module@\spxentry{module}!topologicalFunc@\spxentry{topologicalFunc}|hyperpage}{7}
+\indexentry{topologicalFunc@\spxentry{topologicalFunc}!module@\spxentry{module}|hyperpage}{7}
+\indexentry{GaussianFiltration() (in module topologicalFunc)@\spxentry{GaussianFiltration()}\spxextra{in module topologicalFunc}|hyperpage}{7}
+\indexentry{GenerateBettiP() (in module topologicalFunc)@\spxentry{GenerateBettiP()}\spxextra{in module topologicalFunc}|hyperpage}{7}
+\indexentry{GenerateGenus() (in module topologicalFunc)@\spxentry{GenerateGenus()}\spxextra{in module topologicalFunc}|hyperpage}{7}
+\indexentry{module@\spxentry{module}!utilities@\spxentry{utilities}|hyperpage}{9}
+\indexentry{utilities@\spxentry{utilities}!module@\spxentry{module}|hyperpage}{9}
+\indexentry{Generate\_BettiGenus\_array() (in module utilities)@\spxentry{Generate\_BettiGenus\_array()}\spxextra{in module utilities}|hyperpage}{9}
+\indexentry{Generate\_Likelihood\_Array() (in module utilities)@\spxentry{Generate\_Likelihood\_Array()}\spxextra{in module utilities}|hyperpage}{9}
+\indexentry{KLdivergence() (in module utilities)@\spxentry{KLdivergence()}\spxextra{in module utilities}|hyperpage}{9}
+\indexentry{plotROC() (in module utilities)@\spxentry{plotROC()}\spxextra{in module utilities}|hyperpage}{10}
+\indexentry{readROC() (in module utilities)@\spxentry{readROC()}\spxextra{in module utilities}|hyperpage}{10}
+\indexentry{saveROC() (in module utilities)@\spxentry{saveROC()}\spxextra{in module utilities}|hyperpage}{10}

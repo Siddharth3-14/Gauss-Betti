@@ -9,15 +9,11 @@ Welcome to GaussBetti's documentation!
 .. toctree::
    :maxdepth: 2
 
-   topologicalFunc
-   utilities
    gaussClass
    rocGen
-   
-
-
-
-
+   testsFunc
+   topologicalFunc
+   utilities
 
 Indices and tables
 ==================

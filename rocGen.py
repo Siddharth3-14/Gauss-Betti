@@ -1,6 +1,6 @@
 import numpy as np
 
-def LikelihoodROC(likelihoodratio0,likelihoodratio1,threshold_step):
+def LikelihoodROC(likelihoodratio0,likelihoodratio1):
     """LikelihoodROC
 
     Generates PFA and PD values from likelihood ratios of the Gaussian Random Field using the specified parameters
@@ -17,8 +17,11 @@ def LikelihoodROC(likelihoodratio0,likelihoodratio1,threshold_step):
     peak1 = np.amax(likelihoodratio1)
     trough0 = np.amin(likelihoodratio0)
     trough1 = np.amin(likelihoodratio1)
-    threshold_start = np.amin([trough1,trough0])-3*threshold_step
-    threshold_stop = np.amax([peak1,peak0])+3*threshold_step
+    minimum = np.amin([trough1,trough0])
+    maximum = np.amax([peak1,peak0])
+    threshold_step = (maximum - minimum)/500
+    threshold_start = minimum-3*threshold_step
+    threshold_stop = maximum+3*threshold_step
     thresholds = np.arange(threshold_start,threshold_stop,threshold_step)
     iteration = likelihoodratio0.shape[0]
     PFA_array = []
@@ -36,12 +39,12 @@ def LikelihoodROC(likelihoodratio0,likelihoodratio1,threshold_step):
         PD = PD/iteration
         PFA_array.append(PFA)
         PD_array.append(PD)
-
+    
     print('Finished generating likelihood ROC curves')
     return np.array([PFA_array,PD_array])
 
 
-def BettiROC(Betti_array0,Betti_array1,threshold_step):
+def BettiROC(Betti_array0,Betti_array1):
     """BettiROC
 
     Generates PFA and PD values from Betti curves using the specified parameters
@@ -54,11 +57,24 @@ def BettiROC(Betti_array0,Betti_array1,threshold_step):
     Returns:
         Array: PFA and PD values
     """
+    def smolPeak(Array):        
+        iteration = Array.shape[0]
+        minimumPeak = np.amax(Array[0])
+        for i in range(1,iteration):
+            if minimumPeak > np.amax(Array[i]):
+                minimumPeak = np.amax(Array[i])
+        return minimumPeak
+        
     peak0 = np.amax(Betti_array0)
     peak1 = np.amax(Betti_array1)
+    trough0 = smolPeak(Betti_array0)
+    trough1 = smolPeak(Betti_array1)
     index = np.argmax(Betti_array1[0])
-    threshold_start = np.amin([peak0,peak1]) - 20
-    threshold_stop = np.amax([peak0,peak1]) + 20
+    minimum = np.amin([trough0,trough1])
+    maximum = np.amax([peak0,peak1])
+    threshold_step = (maximum - minimum)/500
+    threshold_start = minimum-3*threshold_step
+    threshold_stop = maximum+3*threshold_step
     thresholds = np.arange(threshold_start,threshold_stop,threshold_step)
     iteration = Betti_array1.shape[0]
     PFA_array = []
@@ -78,7 +94,7 @@ def BettiROC(Betti_array0,Betti_array1,threshold_step):
     print('Finished generating Betti ROC curves')
     return np.array([PFA_array,PD_array])
 
-def GenusROC(Genus_array0,Genus_array1,threshold_step):
+def GenusROC(Genus_array0,Genus_array1):
     """GenusROC
 
     Generates PFA and PD values from Genus curves using the specified parameters
@@ -92,11 +108,24 @@ def GenusROC(Genus_array0,Genus_array1,threshold_step):
     Returns:
         Array: PFA and PD values
     """
+    def smolPeak(Array):        
+        iteration = Array.shape[0]
+        minimumPeak = np.amax(Array[0])
+        for i in range(1,iteration):
+            if minimumPeak > np.amax(Array[i]):
+                minimumPeak = np.amax(Array[i])
+        return minimumPeak
+        
     peak0 = np.amax(Genus_array0)
     peak1 = np.amax(Genus_array1)
-    index = np.argmax(Genus_array1[0])
-    threshold_start = np.amin([peak0,peak1]) - 20
-    threshold_stop = np.amax([peak0,peak1]) + 20
+    trough0 = smolPeak(Genus_array0)
+    trough1 = smolPeak(Genus_array1)
+    index = np.argmax(Genus_array0[0])
+    minimum = np.amin([trough0,trough1])
+    maximum = np.amax([peak0,peak1])
+    threshold_step = (maximum - minimum)/500
+    threshold_start = minimum-3*threshold_step
+    threshold_stop = maximum+3*threshold_step
     thresholds = np.arange(threshold_start,threshold_stop,threshold_step)
     iteration = Genus_array1.shape[0]
     PFA_array = []

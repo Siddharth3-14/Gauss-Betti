@@ -5,80 +5,90 @@
 \let\spxextra \sphinxstyleindexextra
 
   \bigletter B
-  \item \spxentry{BettiROC()}\spxextra{in module rocGen}, \hyperpage{9}
+  \item \spxentry{BettiROC()}\spxextra{in module rocGen}, \hyperpage{3}
 
   \indexspace
   \bigletter C
-  \item \spxentry{corr\_f}\spxextra{gaussClass.GaussianRandomField attribute}, \hyperpage{7}
-  \item \spxentry{corr\_s}\spxextra{gaussClass.GaussianRandomField attribute}, \hyperpage{7}
+  \item \spxentry{corr\_f}\spxextra{gaussClass.GaussianRandomField attribute}, \hyperpage{1}
+  \item \spxentry{corr\_s}\spxextra{gaussClass.GaussianRandomField attribute}, \hyperpage{1}
 
   \indexspace
   \bigletter F
   \item \spxentry{fourier\_space\_ind()}\spxextra{gaussClass.GaussianRandomField method}, 
-		\hyperpage{7}
+		\hyperpage{1}
 
   \indexspace
   \bigletter G
   \item \spxentry{gaussClass}
-    \subitem \spxentry{module}, \hyperpage{7}
-  \item \spxentry{GaussianFiltration()}\spxextra{in module topologicalFunc}, \hyperpage{1}
-  \item \spxentry{GaussianRandomField}\spxextra{class in gaussClass}, \hyperpage{7}
+    \subitem \spxentry{module}, \hyperpage{1}
+  \item \spxentry{GaussianFiltration()}\spxextra{in module topologicalFunc}, \hyperpage{7}
+  \item \spxentry{GaussianRandomField}\spxextra{class in gaussClass}, \hyperpage{1}
   \item \spxentry{gen\_correlation()}\spxextra{gaussClass.GaussianRandomField method}, 
-		\hyperpage{7}
-  \item \spxentry{Gen\_GRF()}\spxextra{gaussClass.GaussianRandomField method}, \hyperpage{7}
-  \item \spxentry{Generate\_BettiGenus\_array()}\spxextra{in module utilities}, \hyperpage{3}
-  \item \spxentry{Generate\_Likelihood\_Array()}\spxextra{in module utilities}, \hyperpage{3}
-  \item \spxentry{GenerateBettiP()}\spxextra{in module topologicalFunc}, \hyperpage{1}
-  \item \spxentry{GenerateGenus()}\spxextra{in module topologicalFunc}, \hyperpage{1}
-  \item \spxentry{GenusROC()}\spxextra{in module rocGen}, \hyperpage{9}
+		\hyperpage{1}
+  \item \spxentry{Gen\_GRF()}\spxextra{gaussClass.GaussianRandomField method}, \hyperpage{1}
+  \item \spxentry{Generate\_BettiGenus\_array()}\spxextra{in module utilities}, \hyperpage{9}
+  \item \spxentry{Generate\_Likelihood\_Array()}\spxextra{in module utilities}, \hyperpage{9}
+  \item \spxentry{GenerateBettiP()}\spxextra{in module topologicalFunc}, \hyperpage{7}
+  \item \spxentry{GenerateGenus()}\spxextra{in module topologicalFunc}, \hyperpage{7}
+  \item \spxentry{GenusROC()}\spxextra{in module rocGen}, \hyperpage{3}
 
   \indexspace
   \bigletter K
-  \item \spxentry{k\_ind}\spxextra{gaussClass.GaussianRandomField attribute}, \hyperpage{7}
-  \item \spxentry{KLdivergence()}\spxextra{in module utilities}, \hyperpage{3}
+  \item \spxentry{k\_ind}\spxextra{gaussClass.GaussianRandomField attribute}, \hyperpage{1}
+  \item \spxentry{KLdivergence()}\spxextra{in module utilities}, \hyperpage{9}
 
   \indexspace
   \bigletter L
-  \item \spxentry{LikelihoodROC()}\spxextra{in module rocGen}, \hyperpage{9}
+  \item \spxentry{LikelihoodROC()}\spxextra{in module rocGen}, \hyperpage{3}
 
   \indexspace
   \bigletter M
   \item \spxentry{module}
-    \subitem \spxentry{gaussClass}, \hyperpage{7}
-    \subitem \spxentry{rocGen}, \hyperpage{9}
-    \subitem \spxentry{topologicalFunc}, \hyperpage{1}
-    \subitem \spxentry{utilities}, \hyperpage{3}
+    \subitem \spxentry{gaussClass}, \hyperpage{1}
+    \subitem \spxentry{rocGen}, \hyperpage{3}
+    \subitem \spxentry{testsFunc}, \hyperpage{5}
+    \subitem \spxentry{topologicalFunc}, \hyperpage{7}
+    \subitem \spxentry{utilities}, \hyperpage{9}
+  \item \spxentry{MultitestAllROC()}\spxextra{in module testsFunc}, \hyperpage{5}
 
   \indexspace
   \bigletter N
-  \item \spxentry{n}\spxextra{gaussClass.GaussianRandomField attribute}, \hyperpage{7}
-  \item \spxentry{Nzise}\spxextra{gaussClass.GaussianRandomField attribute}, \hyperpage{7}
+  \item \spxentry{n}\spxextra{gaussClass.GaussianRandomField attribute}, \hyperpage{1}
+  \item \spxentry{Nzise}\spxextra{gaussClass.GaussianRandomField attribute}, \hyperpage{1}
 
   \indexspace
   \bigletter P
-  \item \spxentry{plotROC()}\spxextra{in module utilities}, \hyperpage{4}
-  \item \spxentry{PowerSpectrum}\spxextra{gaussClass.GaussianRandomField attribute}, \hyperpage{7}
+  \item \spxentry{plotROC()}\spxextra{in module utilities}, \hyperpage{10}
+  \item \spxentry{PowerSpectrum}\spxextra{gaussClass.GaussianRandomField attribute}, \hyperpage{1}
   \item \spxentry{PowerSpectrum\_grid\_generator()}\spxextra{gaussClass.GaussianRandomField method}, 
-		\hyperpage{7}
+		\hyperpage{1}
 
   \indexspace
   \bigletter R
-  \item \spxentry{readROC()}\spxextra{in module utilities}, \hyperpage{4}
+  \item \spxentry{readROC()}\spxextra{in module utilities}, \hyperpage{10}
   \item \spxentry{rocGen}
-    \subitem \spxentry{module}, \hyperpage{9}
+    \subitem \spxentry{module}, \hyperpage{3}
 
   \indexspace
   \bigletter S
-  \item \spxentry{saveROC()}\spxextra{in module utilities}, \hyperpage{4}
+  \item \spxentry{saveROC()}\spxextra{in module utilities}, \hyperpage{10}
 
   \indexspace
   \bigletter T
+  \item \spxentry{testAllROC()}\spxextra{in module testsFunc}, \hyperpage{5}
+  \item \spxentry{testBettiGenus()}\spxextra{in module testsFunc}, \hyperpage{5}
+  \item \spxentry{testBettiGenusROC()}\spxextra{in module testsFunc}, \hyperpage{5}
+  \item \spxentry{testCorrelationMatrix()}\spxextra{in module testsFunc}, \hyperpage{6}
+  \item \spxentry{testGaussianRandomField()}\spxextra{in module testsFunc}, \hyperpage{6}
+  \item \spxentry{testLikelihoodROC()}\spxextra{in module testsFunc}, \hyperpage{6}
+  \item \spxentry{testsFunc}
+    \subitem \spxentry{module}, \hyperpage{5}
   \item \spxentry{topologicalFunc}
-    \subitem \spxentry{module}, \hyperpage{1}
+    \subitem \spxentry{module}, \hyperpage{7}
 
   \indexspace
   \bigletter U
   \item \spxentry{utilities}
-    \subitem \spxentry{module}, \hyperpage{3}
+    \subitem \spxentry{module}, \hyperpage{9}
 
 \end{sphinxtheindex}
