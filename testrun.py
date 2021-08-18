@@ -11,7 +11,7 @@ power1 = 1
 niter =  200
 average = 5
 
-# mainFunc.AllROC(nsize,power0,power1,average,niter)
+
 mainFunc.testBettiGenusROC(nsize,power0,power1,average,niter)
 
 

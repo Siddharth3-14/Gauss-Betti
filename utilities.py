@@ -36,15 +36,15 @@ def KLdivergence(x,y1,y2):
 
 
 
-def Generate_Likelihood_Array(Nsize,power_index_null,power_index_test,iteration):
+def Generate_Likelihood_Array(Nsize,power_null,power_test,iteration):
     """Generate_Likelihood_Array
 
     Generates the array of likelihood ratios for making ROC curves.
     
     Args:
         Nsize (integer): grid size of the Gaussian Random Field 
-        power_index_null (float): Power spectral index of Null Hypothesis
-        power_index_test (float): Power spectral index of Test Hypothesis
+        power_null (float): Power spectral index of Null Hypothesis
+        power_test (float): Power spectral index of Test Hypothesis
         iteration (integer): Size of the likelihood ratio array generated 
  
                
@@ -76,8 +76,8 @@ def Generate_Likelihood_Array(Nsize,power_index_null,power_index_test,iteration)
        
         return type_null,type_test
         
-    Gaussian0 = GaussianRandomField(Nsize,power_index_null)
-    Gaussian1 = GaussianRandomField(Nsize,power_index_test)
+    Gaussian0 = GaussianRandomField(Nsize,power_null)
+    Gaussian1 = GaussianRandomField(Nsize,power_test)
 
     corr0 = Gaussian0.corr_s
     corr1 = Gaussian1.corr_s
@@ -100,15 +100,15 @@ def Generate_Likelihood_Array(Nsize,power_index_null,power_index_test,iteration)
     print('Finished generating the likelihood arrays')
     return np.array([likelihoodratio0,likelihoodratio1])
 
-def Generate_BettiGenus_array(Nsize,power_index_null,power_index_test,average,iteration,filtration_threshold_start=-4,filtration_threshold_stop=4,type1='lower'):
+def Generate_BettiGenus_array(Nsize,power_null,power_test,average,iteration,filtration_threshold_start=-4,filtration_threshold_stop=4,type1='lower'):
     """Generate_Likelihood_Array
 
     Generates the Betti and Genus curves for specified parameters.
     
     Args:
         Nsize (integer): grid size of the Gaussian Random Field 
-        power_index_null (float): Power spectral index of Null Hypothesis
-        power_index_test (float): Power spectral index of Test Hypothesis
+        power_null (float): Power spectral index of Null Hypothesis
+        power_test (float): Power spectral index of Test Hypothesis
         average (integer): No. of times the betti curves need to be averaged
         iteration (integer): Size of the arrays generated
         filtration_threshold_start (float): Start value for generating filtraion from dionysus
@@ -119,36 +119,36 @@ def Generate_BettiGenus_array(Nsize,power_index_null,power_index_test,average,it
     Returns:
        numpy array: array of Betti and Genus curves
     """
-    Gaussian0 = GaussianRandomField(Nsize,power_index_null)
-    Gaussian1 = GaussianRandomField(Nsize,power_index_test)
+    Gaussian0 = GaussianRandomField(Nsize,power_null)
+    Gaussian1 = GaussianRandomField(Nsize,power_test)
     size = int((filtration_threshold_stop-filtration_threshold_start)/0.01)
     thresholds = np.arange(filtration_threshold_start,filtration_threshold_stop,0.01)
-    Betti_array0 = []
-    Betti_array1 = []
-    Genus_array0 = []
-    Genus_array1 = []
+    Betti_array_null = []
+    Betti_array_test = []
+    Genus_array_null = []
+    Genus_array_test = []
 
     for _ in range(iteration):
-        BettiAVG0 = np.zeros((3,size))
-        BettiAVG1 = np.zeros((3,size))
+        BettiAVG_null = np.zeros((3,size))
+        BettiAVG_test = np.zeros((3,size))
         for _ in range(average):
             temp_filtration0 = topologicalFunc.GaussianFiltration(Gaussian0.Gen_GRF())
             temp_filtration1 = topologicalFunc.GaussianFiltration(Gaussian1.Gen_GRF())
             temp_betti0 = topologicalFunc.GenerateBettiP(temp_filtration0,filtration_threshold_start,filtration_threshold_stop,type1)
             temp_betti1 = topologicalFunc.GenerateBettiP(temp_filtration1,filtration_threshold_start,filtration_threshold_stop,type1)
-            BettiAVG0 += temp_betti0
-            BettiAVG1 += temp_betti1
-        BettiAVG0 = BettiAVG0/average
-        BettiAVG1 = BettiAVG1/average
-        GenusAVG0 = topologicalFunc.GenerateGenus(BettiAVG0)
-        GenusAVG1 = topologicalFunc.GenerateGenus(BettiAVG1)
+            BettiAVG_null += temp_betti0
+            BettiAVG_test += temp_betti1
+        BettiAVG_null = BettiAVG_null/average
+        BettiAVG_test = BettiAVG_test/average
+        GenusAVG_null = topologicalFunc.GenerateGenus(BettiAVG_null)
+        GenusAVG_test = topologicalFunc.GenerateGenus(BettiAVG_test)
     
-        Genus_array0.append(GenusAVG0)
-        Genus_array1.append(GenusAVG1)
-        Betti_array0.append(BettiAVG0)
-        Betti_array1.append(BettiAVG1)
+        Genus_array_null.append(GenusAVG_null)
+        Genus_array_test.append(GenusAVG_test)
+        Betti_array_null.append(BettiAVG_null)
+        Betti_array_test.append(BettiAVG_test)
     print('Finished generating Betti and Genus arrays')
-    return [np.array(Betti_array0),np.array(Betti_array1),np.array(Genus_array0),np.array(Genus_array1),thresholds]
+    return [np.array(Betti_array_null),np.array(Betti_array_test),np.array(Genus_array_null),np.array(Genus_array_test),thresholds]
 
 
 def plotROC(PFA,PD,nsize,num_iter,H0,H1,type1,Betti='default'):
@@ -178,7 +178,6 @@ def plotROC(PFA,PD,nsize,num_iter,H0,H1,type1,Betti='default'):
         plt.ylabel('PD')
         title = '{type1} ROC Betti{Betti} {linebreak} Grid size = {nsize} iteration = {num_iter} {linebreak} power spectral index of null hypothesis:{H0}, test hypothesis:{H1} '.format(type1 = type1,Betti=str(Betti),nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1),linebreak='\n' )
         plt.title(title)
-        # plt.show()
         print('Finished saving the {type1} plot'.format(type1=type1))
         plt.savefig('Figures/{type1}B{Betti}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.png'.format(type1=type1,Betti=str(Betti),nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1)))
 
@@ -192,7 +191,6 @@ def plotROC(PFA,PD,nsize,num_iter,H0,H1,type1,Betti='default'):
         plt.ylabel('PD')
         title = '{type1} ROC {linebreak} Grid size = {nsize} iteration = {num_iter} {linebreak} power spectral index of null hypothesis:{H0}, test hypothesis:{H1} '.format(type1 = type1,nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1),linebreak='\n' )
         plt.title(title)
-        # plt.show()
         plt.savefig('Figures/{type1}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.png'.format(type1=type1,nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1)))
         print('Finished saving the {type1} plot'.format(type1=type1))
 
@@ -260,9 +258,6 @@ def readROC(nsize,num_iter,H0,H1,type1,Betti='default'):
 
         return np.array([PFA,PD])
 
-        # PFA = Data[0]
-        # PD = Data[1]
-        # return [PFA,PD]
     else:
         filename = 'Files/{type1}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.txt'.format(type1=type1,nsize=str(nsize),num_iter=str(num_iter),H0 = str(H0),H1 =str(H1))
         Data = pd.read_csv(filename,delimiter='\s+')
