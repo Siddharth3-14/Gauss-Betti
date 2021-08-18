@@ -1,13 +1,18 @@
 from matplotlib.figure import Figure
-import testsFunc
+import mainFunc
 import matplotlib.pyplot as plt
+import numpy as np
+from gaussClass import GaussianRandomField
+import utilities
 
 nsize = 20
-power0 = [0.9,0.5]
-power1 = [1,1]
-niter =  100
+power0 = 1.1
+power1 = 1
+niter =  200
 average = 5
 
-# testsFunc.testBettiGenusROC(nsize,power0,power1,average,niter)
-plt.plot(power0,power1)
-plt.savefig('Figure/multi/test.png')
+# mainFunc.AllROC(nsize,power0,power1,average,niter)
+mainFunc.testBettiGenusROC(nsize,power0,power1,average,niter)
+
+
+

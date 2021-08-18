@@ -69,12 +69,12 @@ def BettiROC(Betti_array0,Betti_array1):
     peak1 = np.amax(Betti_array1)
     trough0 = smolPeak(Betti_array0)
     trough1 = smolPeak(Betti_array1)
-    index = np.argmax(Betti_array1[0])
+    index = int((np.argmax(Betti_array1[0])+np.argmax(Betti_array0[0]))/2) 
     minimum = np.amin([trough0,trough1])
     maximum = np.amax([peak0,peak1])
-    threshold_step = (maximum - minimum)/500
-    threshold_start = minimum-3*threshold_step
-    threshold_stop = maximum+3*threshold_step
+    threshold_step = 0.1
+    threshold_start = 0
+    threshold_stop = 400
     thresholds = np.arange(threshold_start,threshold_stop,threshold_step)
     iteration = Betti_array1.shape[0]
     PFA_array = []
@@ -83,10 +83,11 @@ def BettiROC(Betti_array0,Betti_array1):
         PFA = 0
         PD = 0
         for i in range(iteration):
-            if Betti_array1[i,index] > lambd:
-                PD += 1
             if Betti_array0[i,index] > lambd:
                 PFA += 1
+            if Betti_array1[i,index] > lambd:
+                PD += 1
+
         PFA = PFA/iteration
         PD = PD/iteration
         PFA_array.append(PFA)
@@ -120,7 +121,7 @@ def GenusROC(Genus_array0,Genus_array1):
     peak1 = np.amax(Genus_array1)
     trough0 = smolPeak(Genus_array0)
     trough1 = smolPeak(Genus_array1)
-    index = np.argmax(Genus_array0[0])
+    index = int((np.argmax(Genus_array0[0])+np.argmax(Genus_array1[0]))/2)
     minimum = np.amin([trough0,trough1])
     maximum = np.amax([peak0,peak1])
     threshold_step = (maximum - minimum)/500
@@ -134,10 +135,11 @@ def GenusROC(Genus_array0,Genus_array1):
         PFA = 0
         PD = 0
         for i in range(iteration):
-            if Genus_array1[i,index] > lambd:
-                PD += 1
             if Genus_array0[i,index] > lambd:
                 PFA += 1
+            if Genus_array1[i,index] > lambd:
+                PD += 1
+
         PFA = PFA/iteration
         PD = PD/iteration
         PFA_array.append(PFA)
