@@ -1,9 +1,13 @@
+from numpy.core.fromnumeric import diagonal
+from numpy.lib.twodim_base import diag
 import pandas as pd
 import utilities
 import numpy as np
 import rocGen
 from gaussClass import GaussianRandomField
 import matplotlib.pyplot as plt
+
+path_to_save ='Figures/A_0.5'
 
 def AllROC(Nsize,power_null,power_test,average,num_iter):
     """testAllROC
@@ -24,7 +28,7 @@ def AllROC(Nsize,power_null,power_test,average,num_iter):
     [likelihoodratio0,likelihoodratio1] = utilities.Generate_Likelihood_Array(Nsize,power_null,power_test,num_iter) 
     [Betti_null,Betti_test,Genus_null,Genus_test,thresholds] = utilities.Generate_BettiGenus_array(Nsize,power_null,power_test,average,num_iter) 
 
-    PFA_likelihood,PD_likelihood = rocGen.LikelihoodROC(likelihoodratio0,likelihoodratio1)  
+    PFA_likelihood,PD_likelihood = rocGen.LikelihoodROC(likelihoodratio0,likelihoodratio1,power_null,power_test)  
     [PFA_betti0,PD_betti0] = rocGen.BettiROC(Betti_null[:,0,:],Betti_test[:,0,:],power_null,power_test) 
     [PFA_betti1,PD_betti1] = rocGen.BettiROC(Betti_null[:,1,:],Betti_test[:,1,:],power_null,power_test) 
     [PFA_Genus,PD_Genus] = rocGen.GenusROC(Genus_null,Genus_test,power_null,power_test)               
@@ -32,7 +36,7 @@ def AllROC(Nsize,power_null,power_test,average,num_iter):
     tempGRF0 = GaussianRandomField(Nsize,power_null).Gen_GRF('grid')
     tempGRF1 = GaussianRandomField(Nsize,power_test).Gen_GRF('grid')
     diagnol = np.arange(0,1.1,0.1)
-    plt.figure()
+    plt.figure(figsize=(15,13))
     GRF1 = plt.subplot2grid((4,6),(0,0),colspan=2,rowspan=2)
     GRF2 = plt.subplot2grid((4,6),(0,2),colspan=2,rowspan=2)
     lroc = plt.subplot2grid((4,6),(0,4),colspan=2,rowspan=2)
@@ -56,6 +60,8 @@ def AllROC(Nsize,power_null,power_test,average,num_iter):
     b0_roc.set_title('Betti0 ROC')
     b0_roc.legend()    
     plt.tight_layout()
+    plt.suptitle('Null Power Index: {power_null} Test Power Index:{power_test}'.format(power_null=power_null,power_test=power_test),fontsize=20)
+    plt.savefig('{path}/Fig_a_null{power_null}_test{power_test}.png'.format(path = path_to_save,power_null=power_null,power_test=power_test))
 
     plt.figure()
     betti1 = plt.subplot2grid((4,6),(0,0),colspan=4,rowspan=2)
@@ -80,6 +86,8 @@ def AllROC(Nsize,power_null,power_test,average,num_iter):
     groc.set_title('Genus ROC')
     groc.legend()
     plt.tight_layout()
+    plt.savefig('{path}/Fig_b_null{power_null}_test{power_test}.png'.format(path = path_to_save,power_null=power_null,power_test=power_test))
+
 
     plt.figure()
     plt.plot(PFA_likelihood,PD_likelihood,'r',label='likelihood ROC')
@@ -93,8 +101,8 @@ def AllROC(Nsize,power_null,power_test,average,num_iter):
     plt.ylabel('PD')
     plt.title('ROC curves for values of null power {nullpower} and test power {testpower} {linebreak} spectral index and grid size {nsize} {linebreak} iteration {num_iter}'.format(nsize=str(Nsize),nullpower=str(power_null),testpower=str(power_test),num_iter=str(num_iter),linebreak = '\n'))
     plt.legend()
+    plt.savefig('{path}/Fig_c_null{power_null}_test{power_test}.png'.format(path = path_to_save,power_null=power_null,power_test=power_test))
     print('. . . AllROC finished')
-    plt.show()
 
 
 def MultiAllROC(Nsize,power_null,power_test,average,num_iter):
@@ -113,12 +121,14 @@ def MultiAllROC(Nsize,power_null,power_test,average,num_iter):
         None: None
     """
     print('Started MultiAllROC . . .')
+    diagonal = np.arange(0,1.1,0.1)
     num_tests = len(power_null)
     for i in range(num_tests):
+
         [likelihoodratio0,likelihoodratio1] = utilities.Generate_Likelihood_Array(Nsize,power_null[i],power_test[i],num_iter) 
         [Betti_null,Betti_test,Genus_null,Genus_test] = utilities.Generate_BettiGenus_array(Nsize,power_null[i],power_test[i],average,num_iter) 
 
-        PFA_likelihood,PD_likelihood = rocGen.LikelihoodROC(likelihoodratio0,likelihoodratio1)  
+        PFA_likelihood,PD_likelihood = rocGen.LikelihoodROC(likelihoodratio0,likelihoodratio1,power_null[i],power_test[i])  
         [PFA_betti0,PD_betti0] = rocGen.BettiROC(Betti_null[:,0,:],Betti_test[:,0,:],power_null[i],power_test[i]) 
         [PFA_betti1,PD_betti1] = rocGen.BettiROC(Betti_null[:,1,:],Betti_test[:,1,:],power_null[i],power_test[i]) 
         [PFA_Genus,PD_Genus] = rocGen.GenusROC(Genus_null,Genus_test,0.01,power_null[i],power_test[i])               
@@ -127,6 +137,7 @@ def MultiAllROC(Nsize,power_null,power_test,average,num_iter):
         plt.plot(PFA_betti0,PD_betti0,'y',label='Betti0 ROC')
         plt.plot(PFA_betti1,PD_betti1,'b',label = 'Betti1 ROC')
         plt.plot(PFA_Genus,PD_Genus,'g',label = 'Genus ROC')
+        plt.plot(diagonal,diagonal,label = 'x = y')
         plt.title('ROC curves for values of null power {nullpower} and test power {testpower} {linebreak} spectral index and grid size {nsize} {linebreak} iteration {num_iter}'.format(nsize=str(Nsize),nullpower=str(power_null),testpower=str(power_test),num_iter=str(num_iter),linebreak = '\n'))
         plt.xlim(0,1)
         plt.ylim(0,1)
@@ -136,7 +147,8 @@ def MultiAllROC(Nsize,power_null,power_test,average,num_iter):
         plt.savefig('Figures/test/type{type1}Nsize{nsize}Iter{num_iter}n{H0}n{H1}.png'.format(type1='all',nsize=str(Nsize),num_iter=str(num_iter),H0 = str(power_null[i]),H1 =str(power_test[i])))
     print('. . . MultiAllROC finished')
 
-def MultitestLikelihoodROC(nsize,power_null,power_test,num_iter):
+
+def MultitestLikelihoodROC(nsize,power_null,power_test,num_iter,test_case):
     """testLikelihoodROC
 
     Plots the likelihood ROC curve for multiple values of null and test power spectral index.
@@ -150,17 +162,97 @@ def MultitestLikelihoodROC(nsize,power_null,power_test,num_iter):
     Returns:
         None: None
     """
+    plt.figure()
+    diagonal = np.arange(0,1.1,0.1)
     num_tests = len(power_null)
     for i in range(num_tests):
         lik0,lik1 = utilities.Generate_Likelihood_Array(nsize,power_null[i],power_test[i],num_iter)
-        PFA,PD = rocGen.LikelihoodROC(lik0,lik1)
+        PFA,PD = rocGen.LikelihoodROC(lik0,lik1,power_null[i],power_test[i])
         plt.plot(PFA,PD,label= 'Null = {null}, Test = {test}'.format(null=power_null[i],test=power_test[i]))
+    plt.plot(diagonal,diagonal,label='x = y')
     plt.xlim(0,1)
     plt.ylim(0,1)
     plt.xlabel('PFA')
     plt.ylabel('PD')
     plt.title('Likelihood ROC curves for different values of null and test power {linebreak} spectral index and grid size {nsize} {linebreak} iteration {num_iter}'.format(nsize=str(nsize),num_iter=num_iter,linebreak = '\n'))
     plt.legend()
+    plt.tight_layout()
+    print('. . . Finished the likelihood testrun')
+    plt.savefig('{path}/Likelihood_testCase{test_case}.png'.format(path = path_to_save,test_case=test_case,power_null=power_null,power_test=power_test))
+
+def MultitestBettiGenusROC(Nsize,power_null,power_test,average,num_iter,test_case):
+    """testBettiGenusROC
+
+    Plots the Betti and Genus ROC curve for multiple values of null and test power spectral index.
+    
+    Args:
+        nsize (integer): Size of the Gaussian Random Fields grid.
+        power_null (array): Power spectral indices of Null Hypothesis.
+        power_test (array): Power spectral indices of Test Hypothesis.
+        average (integer): Number of times topological curves are averaged
+        num_iter (integer): Number of iteration for which ROC gen is run.
+       
+    Returns:
+        None: None
+    """
+    diagonal = np.arange(0,1.1,0.1)
+    num_tests = len(power_null)
+    fig = plt.figure(figsize=(20,6))
+    ax1 = fig.add_subplot(131)
+    ax2 = fig.add_subplot(132)
+    ax3 = fig.add_subplot(133)
+    for i in range(num_tests):
+        [Betti_null,Betti_test,Genus_null,Genus_test,_] = utilities.Generate_BettiGenus_array(Nsize,power_null[i],power_test[i],average,num_iter) 
+
+        [PFA_betti0,PD_betti0] = rocGen.BettiROC(Betti_null[:,0,:],Betti_test[:,0,:],power_null[i],power_test[i]) 
+        [PFA_betti1,PD_betti1] = rocGen.BettiROC(Betti_null[:,1,:],Betti_test[:,1,:],power_null[i],power_test[i]) 
+        [PFA_Genus,PD_Genus] = rocGen.GenusROC(Genus_null,Genus_test,power_null[i],power_test[i])
+
+        ax1.plot(PFA_betti0,PD_betti0,label= 'Null = {null}, Test = {test}'.format(null=power_null[i],test=power_test[i]))
+        ax2.plot(PFA_betti1,PD_betti1,label= 'Null = {null}, Test = {test}'.format(null=power_null[i],test=power_test[i]))
+        ax3.plot(PFA_Genus,PD_Genus,label= 'Null = {null}, Test = {test}'.format(null=power_null[i],test=power_test[i]))
+
+
+    ax1.title.set_text('Betti0 ROC')
+    ax1.plot(diagonal,diagonal,label='x = y')
+
+    ax2.title.set_text('Betti1 ROC')
+    ax2.plot(diagonal,diagonal,label='x = y')
+
+    ax3.title.set_text('Genus ROC')
+    ax3.plot(diagonal,diagonal,label='x = y')
+    plt.legend(bbox_to_anchor=(1.05, 1),loc='upper left')
+    plt.tight_layout()
+    plt.savefig('{path}/BettiGenus_testCase{test_case}.png'.format(path = path_to_save,test_case=test_case))
+    print('. . . Finished Multi test Betti and Genus ROC')
+
+
+def testLikelihoodROC(nsize,power_null,power_test,num_iter):
+    """testLikelihoodROC
+
+    Plots the likelihood ROC curve for multiple values of null and test power spectral index.
+    
+    Args:
+        nsize (integer): Size of the Gaussian Random Fields grid.
+        power_null (array): Power spectral indices of Null Hypothesis.
+        power_test (array): Power spectral indices of Test Hypothesis.
+        num_iter (integer): Number of iteration for which ROC gen is run.
+       
+    Returns:
+        None: None
+    """
+    diagonal = np.arange(0,1.1,0.1)
+    lik0,lik1 = utilities.Generate_Likelihood_Array(nsize,power_null,power_test,num_iter)
+    PFA,PD = rocGen.LikelihoodROC(lik0,lik1,power_null,power_test)
+    plt.plot(PFA,PD,label= 'Null = {null}, Test = {test}'.format(null=power_null,test=power_test))
+    plt.plot(diagonal,diagonal,label='x = y')
+    plt.xlim(0,1)
+    plt.ylim(0,1)
+    plt.xlabel('PFA')
+    plt.ylabel('PD')
+    plt.title('Likelihood ROC curves for different values of null and test power {linebreak} spectral index and grid size {nsize} {linebreak} iteration {num_iter}'.format(nsize=str(nsize),num_iter=num_iter,linebreak = '\n'))
+    plt.legend()
+    plt.tight_layout()
     print('. . . Finished the likelihood testrun')
     plt.show()
 
@@ -180,7 +272,7 @@ def testBettiGenusROC(Nsize,power_null,power_test,average,num_iter):
     Returns:
         None: None
     """
-    diagnol = np.arange(0,1,0.1)
+    diagnol = np.arange(0,1.1,0.1)
 
 
     [Betti_null,Betti_test,Genus_null,Genus_test,thresholds] = utilities.Generate_BettiGenus_array(Nsize,power_null,power_test,average,num_iter) 
@@ -228,45 +320,6 @@ def testBettiGenusROC(Nsize,power_null,power_test,average,num_iter):
     fig2.tight_layout()
     print('. . . Finished the test Betti Genus ROC ')
 
-    plt.show()
-
-
-def MultitestBettiGenusROC(Nsize,power_null,power_test,average,num_iter):
-    """testBettiGenusROC
-
-    Plots the Betti and Genus ROC curve for multiple values of null and test power spectral index.
-    
-    Args:
-        nsize (integer): Size of the Gaussian Random Fields grid.
-        power_null (array): Power spectral indices of Null Hypothesis.
-        power_test (array): Power spectral indices of Test Hypothesis.
-        average (integer): Number of times topological curves are averaged
-        num_iter (integer): Number of iteration for which ROC gen is run.
-       
-    Returns:
-        None: None
-    """
-    num_tests = len(power_null)
-    fig = plt.figure()
-    ax1 = fig.add_subplot(131)
-    ax2 = fig.add_subplot(132)
-    ax3 = fig.add_subplot(133)
-    for i in range(num_tests):
-        [Betti_null,Betti_test,Genus_null,Genus_test] = utilities.Generate_BettiGenus_array(Nsize,power_null[i],power_test[i],average,num_iter) 
-
-        [PFA_betti0,PD_betti0] = rocGen.BettiROC(Betti_null[:,0,:],Betti_test[:,0,:],power_null[i],power_test[i]) 
-        [PFA_betti1,PD_betti1] = rocGen.BettiROC(Betti_null[:,1,:],Betti_test[:,1,:],power_null[i],power_test[i]) 
-        [PFA_Genus,PD_Genus] = rocGen.GenusROC(Genus_null,Genus_test,power_null[i],power_test[i])
-
-        ax1.plot(PFA_betti0,PD_betti0,label= 'Null = {null}, Test = {test}'.format(null=power_null[i],test=power_test[i]))
-        ax2.plot(PFA_betti1,PD_betti1,label= 'Null = {null}, Test = {test}'.format(null=power_null[i],test=power_test[i]))
-        ax3.plot(PFA_Genus,PD_Genus,label= 'Null = {null}, Test = {test}'.format(null=power_null[i],test=power_test[i]))
-
-    ax1.title.set_text('Betti0 ROC')
-    ax2.title.set_text('Betti1 ROC')
-    ax3.title.set_text('Genus ROC')
-    plt.legend()
-    print('. . . Finished Multi test Betti and Genus ROC')
     plt.show()
 
 

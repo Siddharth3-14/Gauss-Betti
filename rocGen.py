@@ -1,6 +1,6 @@
 import numpy as np
 
-def LikelihoodROC(likelihoodratio0,likelihoodratio1):
+def LikelihoodROC(likelihoodratio0,likelihoodratio1,power_null,power_test):
     """LikelihoodROC
 
     Generates PFA and PD values from likelihood ratios of the Gaussian Random Field using the specified parameters
@@ -13,16 +13,20 @@ def LikelihoodROC(likelihoodratio0,likelihoodratio1):
     Returns:
         Array: PFA and PD values
     """
-    peak0 = np.amax(likelihoodratio0)
-    peak1 = np.amax(likelihoodratio1)
-    trough0 = np.amin(likelihoodratio0)
-    trough1 = np.amin(likelihoodratio1)
-    minimum = np.amin([trough1,trough0])
-    maximum = np.amax([peak1,peak0])
-    threshold_step = (maximum - minimum)/500
-    threshold_start = minimum-3*threshold_step
-    threshold_stop = maximum+3*threshold_step
-    thresholds = np.arange(threshold_start,threshold_stop,threshold_step)
+    if power_test != power_null:
+        peak0 = np.amax(likelihoodratio0)
+        peak1 = np.amax(likelihoodratio1)
+        trough0 = np.amin(likelihoodratio0)
+        trough1 = np.amin(likelihoodratio1)
+        minimum = np.amin([trough1,trough0])
+        maximum = np.amax([peak1,peak0])
+        threshold_step = (maximum - minimum)/500
+        threshold_start = minimum-3*threshold_step
+        threshold_stop = maximum+3*threshold_step
+        thresholds = np.arange(threshold_start,threshold_stop,threshold_step)
+    else:
+        thresholds = np.arange(-1,1,0.01)
+
     iteration = likelihoodratio0.shape[0]
     PFA_array = []
     PD_array = []
@@ -41,7 +45,12 @@ def LikelihoodROC(likelihoodratio0,likelihoodratio1):
         PD_array.append(PD)
     
     print('Finished generating likelihood ROC curves')
-    return np.array([PFA_array,PD_array])
+    if power_test < power_null:
+        return np.array([PFA_array,PD_array])
+    else:
+        return np.array([PD_array,PFA_array])
+
+
 
 
 def BettiROC(Betti_array_null,Betti_array_test,power_null,power_test):

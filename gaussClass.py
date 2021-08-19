@@ -44,7 +44,7 @@ class GaussianRandomField:
         """
         # k_c = 0.785
         # A_n = 1/((k_c)**self.n)
-        A_n = 1
+        A_n = 0.5
         k_idx = self.k_ind
         k = np.sqrt(k_idx[0]**2 + k_idx[1]**2 + 1e-10)
         PowerSpectrum = (A_n*(abs(k)**(self.n)))
