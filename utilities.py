@@ -36,7 +36,7 @@ def KLdivergence(x,y1,y2):
 
 
 
-def Generate_Likelihood_Array(Nsize,power_null,power_test,iteration):
+def Generate_Likelihood_Array(Nsize,power_null,power_test,iteration,average):
     """Generate_Likelihood_Array
 
     Generates the array of likelihood ratios for making ROC curves.
@@ -54,22 +54,20 @@ def Generate_Likelihood_Array(Nsize,power_null,power_test,iteration):
     def Calcualte_log_det(corr):
         maxc = np.amax(corr)
         minc = np.amin(corr)
-        average = (maxc + minc)/2
-        corr_tilda = corr/average
-
-        det_corr_tilda = np.log(np.longfloat(np.sqrt(abs(np.linalg.det(corr_tilda))))) + 0.5*Nsize*Nsize*np.log(average)
+        scaling_factor = (maxc + minc)/2
+        corr_tilda = corr/scaling_factor
+        det_corr_tilda = np.log(np.longfloat(np.sqrt(abs(np.linalg.det(corr_tilda))))) + 0.5*Nsize*Nsize*np.log(scaling_factor)
         return det_corr_tilda
 
     def likelihoodratio(X0,X1):
         trans_X0 = np.transpose(X0)
         trans_X1 = np.transpose(X1)
 
-        type_test_n0 = -0.5*np.dot(trans_X1, np.dot(inv_corr0, X1))
-        type_test_n1 = -0.5*np.dot(trans_X1, np.dot(inv_corr1, X1))
-
         type_null_n0 = -0.5*np.dot(trans_X0, np.dot(inv_corr0, X0))
         type_null_n1 = -0.5*np.dot(trans_X0, np.dot(inv_corr1, X0))
 
+        type_test_n0 = -0.5*np.dot(trans_X1, np.dot(inv_corr0, X1))
+        type_test_n1 = -0.5*np.dot(trans_X1, np.dot(inv_corr1, X1))
 
         type_null = type_null_n0 + det_corr1 - type_null_n1 - det_corr0
         type_test = type_test_n1 + det_corr0 - type_test_n0 - det_corr1
@@ -87,18 +85,24 @@ def Generate_Likelihood_Array(Nsize,power_null,power_test,iteration):
 
     inv_corr0 = np.linalg.inv(corr0)
     inv_corr1 = np.linalg.inv(corr1)
-    
-    likelihoodratio0 = []
-    likelihoodratio1 = []
+
+    likelihoodratio0_array = []
+    likelihoodratio1_array = []
     for _ in range(iteration):
-        tempGaussian0 = Gaussian0.Gen_GRF(type = 'array')
-        tempGaussian1 = Gaussian1.Gen_GRF(type = 'array')
-        tempType_null,tempType_test = likelihoodratio(tempGaussian0,tempGaussian1)
-        likelihoodratio0.append(tempType_null)
-        likelihoodratio1.append(tempType_test)
+        likelihoodratio0 = 0
+        likelihoodratio1 = 0
+        for i in range(average):
+            tempGaussian0 = Gaussian0.Gen_GRF(type = 'array')
+            tempGaussian1 = Gaussian1.Gen_GRF(type = 'array')
+            tempType_null,tempType_test = likelihoodratio(tempGaussian0,tempGaussian1)
+            likelihoodratio0 += tempType_null
+            likelihoodratio1 += tempType_test
+
+        likelihoodratio0_array.append(likelihoodratio0)
+        likelihoodratio1_array.append(likelihoodratio1)
 
     print('Finished generating the likelihood arrays')
-    return np.array([likelihoodratio0,likelihoodratio1])
+    return np.array([likelihoodratio0_array,likelihoodratio1_array])
 
 def Generate_BettiGenus_array(Nsize,power_null,power_test,average,iteration,filtration_threshold_start=-4,filtration_threshold_stop=4,type1='lower'):
     """Generate_Likelihood_Array

@@ -20,7 +20,7 @@ def LikelihoodROC(likelihoodratio0,likelihoodratio1,power_null,power_test):
         trough1 = np.amin(likelihoodratio1)
         minimum = np.amin([trough1,trough0])
         maximum = np.amax([peak1,peak0])
-        threshold_step = (maximum - minimum)/500
+        threshold_step = (maximum - minimum)/300
         threshold_start = minimum-3*threshold_step
         threshold_stop = maximum+3*threshold_step
         thresholds = np.arange(threshold_start,threshold_stop,threshold_step)
@@ -45,10 +45,7 @@ def LikelihoodROC(likelihoodratio0,likelihoodratio1,power_null,power_test):
         PD_array.append(PD)
     
     print('Finished generating likelihood ROC curves')
-    if power_test < power_null:
-        return np.array([PFA_array,PD_array])
-    else:
-        return np.array([PD_array,PFA_array])
+    return np.array([PD_array,PFA_array])
 
 
 

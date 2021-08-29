@@ -1,4 +1,5 @@
 from numpy.core.fromnumeric import diagonal
+from numpy.lib import average
 from numpy.lib.twodim_base import diag
 import pandas as pd
 import utilities
@@ -7,7 +8,7 @@ import rocGen
 from gaussClass import GaussianRandomField
 import matplotlib.pyplot as plt
 
-path_to_save ='Figures/A_0.5'
+path_to_save ='Figures/test'
 
 def AllROC(Nsize,power_null,power_test,average,num_iter):
     """testAllROC
@@ -25,7 +26,7 @@ def AllROC(Nsize,power_null,power_test,average,num_iter):
         None: None
     """
     print('Starting AllROC . . .')
-    [likelihoodratio0,likelihoodratio1] = utilities.Generate_Likelihood_Array(Nsize,power_null,power_test,num_iter) 
+    [likelihoodratio0,likelihoodratio1] = utilities.Generate_Likelihood_Array(Nsize,power_null,power_test,num_iter,average) 
     [Betti_null,Betti_test,Genus_null,Genus_test,thresholds] = utilities.Generate_BettiGenus_array(Nsize,power_null,power_test,average,num_iter) 
 
     PFA_likelihood,PD_likelihood = rocGen.LikelihoodROC(likelihoodratio0,likelihoodratio1,power_null,power_test)  
@@ -148,7 +149,7 @@ def MultiAllROC(Nsize,power_null,power_test,average,num_iter):
     print('. . . MultiAllROC finished')
 
 
-def MultitestLikelihoodROC(nsize,power_null,power_test,num_iter,test_case):
+def MultitestLikelihoodROC(nsize,power_null,power_test,num_iter,average,test_case):
     """testLikelihoodROC
 
     Plots the likelihood ROC curve for multiple values of null and test power spectral index.
@@ -166,18 +167,18 @@ def MultitestLikelihoodROC(nsize,power_null,power_test,num_iter,test_case):
     diagonal = np.arange(0,1.1,0.1)
     num_tests = len(power_null)
     for i in range(num_tests):
-        lik0,lik1 = utilities.Generate_Likelihood_Array(nsize,power_null[i],power_test[i],num_iter)
+        lik0,lik1 = utilities.Generate_Likelihood_Array(nsize,power_null[i],power_test[i],num_iter,average)
         PFA,PD = rocGen.LikelihoodROC(lik0,lik1,power_null[i],power_test[i])
         plt.plot(PFA,PD,label= 'Null = {null}, Test = {test}'.format(null=power_null[i],test=power_test[i]))
     plt.plot(diagonal,diagonal,label='x = y')
-    plt.xlim(0,1)
-    plt.ylim(0,1)
+    plt.xlim(-0.1,1.1)
+    plt.ylim(-0.1,1.1)
     plt.xlabel('PFA')
     plt.ylabel('PD')
     plt.title('Likelihood ROC curves for different values of null and test power {linebreak} spectral index and grid size {nsize} {linebreak} iteration {num_iter}'.format(nsize=str(nsize),num_iter=num_iter,linebreak = '\n'))
-    plt.legend()
+    plt.legend(bbox_to_anchor=(1.05, 1),loc='upper left')
     plt.tight_layout()
-    print('. . . Finished the likelihood testrun')
+    print('. . . Finished the multi-likelihood testrun')
     plt.savefig('{path}/Likelihood_testCase{test_case}.png'.format(path = path_to_save,test_case=test_case,power_null=power_null,power_test=power_test))
 
 def MultitestBettiGenusROC(Nsize,power_null,power_test,average,num_iter,test_case):
@@ -227,7 +228,7 @@ def MultitestBettiGenusROC(Nsize,power_null,power_test,average,num_iter,test_cas
     print('. . . Finished Multi test Betti and Genus ROC')
 
 
-def testLikelihoodROC(nsize,power_null,power_test,num_iter):
+def testLikelihoodROC(nsize,power_null,power_test,num_iter,average):
     """testLikelihoodROC
 
     Plots the likelihood ROC curve for multiple values of null and test power spectral index.
@@ -242,12 +243,13 @@ def testLikelihoodROC(nsize,power_null,power_test,num_iter):
         None: None
     """
     diagonal = np.arange(0,1.1,0.1)
-    lik0,lik1 = utilities.Generate_Likelihood_Array(nsize,power_null,power_test,num_iter)
+    lik0,lik1 = utilities.Generate_Likelihood_Array(nsize,power_null,power_test,num_iter,average)
     PFA,PD = rocGen.LikelihoodROC(lik0,lik1,power_null,power_test)
+    # utilities.saveROC(PFA,PD,nsize,num_iter,power_null,power_test,'likelihood')
     plt.plot(PFA,PD,label= 'Null = {null}, Test = {test}'.format(null=power_null,test=power_test))
     plt.plot(diagonal,diagonal,label='x = y')
-    plt.xlim(0,1)
-    plt.ylim(0,1)
+    plt.xlim(-0.1,1.1)
+    plt.ylim(-0.1,1.1)
     plt.xlabel('PFA')
     plt.ylabel('PD')
     plt.title('Likelihood ROC curves for different values of null and test power {linebreak} spectral index and grid size {nsize} {linebreak} iteration {num_iter}'.format(nsize=str(nsize),num_iter=num_iter,linebreak = '\n'))
@@ -354,10 +356,11 @@ def testCorrelationMatrix(Gauss_class_object):
     """
     nsize = Gauss_class_object.Nsize
     corr_s = Gauss_class_object.corr_s
-    print('Correlation matrix'+'\n',corr_s,'\n')
+    # print('Correlation matrix'+'\n',corr_s,'\n')
     maxc = np.amax(corr_s)
     minc = np.amin(corr_s)
     average = (maxc+minc)/2
+    print('scaling factor',average)
     corr_tilda = corr_s/average
     det_corr_tilda = np.log(np.longfloat(np.sqrt(abs(np.linalg.det(corr_tilda))))) + 0.5*nsize*nsize*np.log(average)
     print('Log Determinant of correlation matrix :',det_corr_tilda)
